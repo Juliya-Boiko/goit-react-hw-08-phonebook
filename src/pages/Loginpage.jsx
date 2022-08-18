@@ -5,7 +5,6 @@ import { getLogging } from "redux/auth-selectors";
 export const Loginpage = () => {
     const dispatch = useDispatch();
     const isLogged = useSelector(getLogging);
-    //console.log(isLogged);
 
     const submitHandler = (evt) => {
         evt.preventDefault();
