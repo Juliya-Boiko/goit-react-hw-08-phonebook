@@ -9,10 +9,10 @@ const customAxios = axios.create({
 
 const token = {
     set(token) {
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+        customAxios.defaults.headers.common.Authorization = `Bearer ${token}`;
     },
     unset() {
-        axios.defaults.headers.common.Authorization = '';
+        customAxios.defaults.headers.common.Authorization = '';
     },
 };
 
@@ -51,6 +51,18 @@ export const logoutUser = createAsyncThunk(
             token.unset();
         } catch (error) {
             console.log(error);
+        }
+    }
+)
+
+export const getContacts = createAsyncThunk(
+    'contacts',
+    async (info) => {
+        try {
+            const response = await customAxios.post('/contacts', info);
+            console.log(response);
+        } catch (error) {
+            
         }
     }
 )

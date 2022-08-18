@@ -23,7 +23,7 @@ export const authSlice = createSlice({
             state.token = action.payload.token;
             state.isLogged = true;
         },
-        [logoutUser.fulfilled](state, _) {
+        [logoutUser.fulfilled](state, action) {
             state.user = {
                 name: '',
                 email: null,
@@ -31,22 +31,5 @@ export const authSlice = createSlice({
             state.token = null;
             state.isLogged = false;
         }
-        // [registerUser.fulfilled]: (_, action) => {
-        //     return {
-        //         user: action.payload.user,
-        //         token: action.payload.token,
-        //         isLogged: true,
-        //     }
-        // },
-        // [loginUser.fulfilled]: (_, action) => {
-        //     return {
-        //         user: action.payload.user,
-        //         token: action.payload.token,
-        //         isLogged: true,
-        //     }
-        // },
-        // [logoutUser.fulfilled]: (state, action) => {
-        //     return initialState;
-        // }
     },
 })
