@@ -3,11 +3,13 @@ import { Homepage } from "pages/Homepage";
 import { Registerpage } from "pages/Registerpage";
 import { Loginpage } from "pages/Loginpage";
 import { SharedLayout } from "layouts/SharedLayout";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+// import { getUserName, getLogging } from "redux/selectors";
 
 export const App = () => {
-  const dataStore = useSelector(state => state.user);
-  console.log(dataStore);
+  // const userName = useSelector(getUserName);
+  // const isLogin = useSelector(getLogging);
+  // console.dir(isLogin);
   
   return (
     <div
@@ -17,7 +19,7 @@ export const App = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 40,
+        fontSize: 20,
         color: '#010101'
       }}
     >
