@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import { Homepage } from "pages/Homepage";
-import { Registerpage } from "pages/Registerpage";
-import { Loginpage } from "pages/Loginpage";
 import { SharedLayout } from "layouts/SharedLayout";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useDispatch } from "react-redux";
 import { getUserData } from "redux/auth-operations";
+
+const Homepage = lazy(() => import('pages/Homepage'));
+const Loginpage = lazy(() => import('pages/Loginpage'));
+const Registerpage = lazy(() => import('pages/Registerpage'));
+// const ContactsData = lazy(() => import('components/ContactsData'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -26,14 +28,21 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Homepage />} />
-          <Route path="login" element={<Loginpage />} />
-          <Route path="register" element={<Registerpage />} />
-          <Route path="*" element={<Homepage />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Homepage />} />
+            <Route path="login" element={<Loginpage />} />
+            <Route path="register" element={<Registerpage />} />
+            
+            
+              {/* <PrivateRoute path="/contacts">
+                <ContactsData />
+              </PrivateRoute> */}
+            <Route path="*" element={<Homepage />} />
+          </Route>
+        </Routes>
+        </Suspense>
     </div>
   );
 };

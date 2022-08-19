@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { registerUser } from "redux/auth-operations";
-export const Registerpage = () => {
+
+const Registerpage = () => {
     const dispatch = useDispatch();
 
     const submitHandler = (evt) => {
@@ -38,3 +39,5 @@ export const Registerpage = () => {
         </div>
     )
 }
+
+export default Registerpage;

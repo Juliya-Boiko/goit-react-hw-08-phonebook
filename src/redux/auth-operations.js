@@ -47,7 +47,7 @@ export const getUserData = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      console.log('TOKEN NULL');
+      // console.log('TOKEN NULL');
       return thunkAPI.rejectWithValue();
     } else {
       token.set(persistedToken);
@@ -60,15 +60,3 @@ export const getUserData = createAsyncThunk(
     }
   }
 )
-
-// export const getContacts = createAsyncThunk(
-//     'contacts',
-//     async (info) => {
-//         try {
-//             const response = await customAxios.post('/contacts', info);
-//             console.log(response);
-//         } catch (error) {
-            
-//         }
-//     }
-// )

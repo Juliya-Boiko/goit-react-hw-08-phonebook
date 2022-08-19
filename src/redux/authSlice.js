@@ -33,8 +33,7 @@ export const authSlice = createSlice({
             state.isLogged = false;
         },
         [getUserData.fulfilled](state, action) {
-            // console.log(action);
-            state.user = { ... action.payload };
+            state.user = { ...action.payload };
             state.isLogged = true;
         },
     },

@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginUser } from "redux/auth-operations";
-import { getLogging } from "redux/auth-selectors";
 
-export const Loginpage = () => {
+ const Loginpage = () => {
     const dispatch = useDispatch();
-    const isLogged = useSelector(getLogging);
 
     const submitHandler = (evt) => {
         evt.preventDefault();
@@ -14,16 +12,6 @@ export const Loginpage = () => {
             password: formElements.password.value
         };
         dispatch(loginUser(newUser));
-    }
-
-    const addHandler = (evt) => {
-        evt.preventDefault();
-        const formElements = evt.target.elements;
-        const newContact = {
-            name: formElements.newtel.value,
-            password: formElements.newname.value
-        };
-        console.log(newContact);
     }
 
     return (
@@ -44,13 +32,8 @@ export const Loginpage = () => {
                 <input id="password" type="text" name="password" />
                 <button type="submit">LOG IN</button>
             </form>
-            {isLogged && <div>
-                <form onSubmit={addHandler}>
-                    <input type="text" name="newtel" placeholder="tel" />
-                    <input type="text" name="newname" placeholder="name" />
-                    <button type="sublit">ADD CONTACT</button>
-                </form>
-            </div>}
         </div>
     )
-}
+ }
+
+export default Loginpage;
