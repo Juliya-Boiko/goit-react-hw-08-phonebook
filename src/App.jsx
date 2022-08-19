@@ -3,14 +3,17 @@ import { Homepage } from "pages/Homepage";
 import { Registerpage } from "pages/Registerpage";
 import { Loginpage } from "pages/Loginpage";
 import { SharedLayout } from "layouts/SharedLayout";
-// import { useSelector } from "react-redux";
-// import { getUserName, getLogging } from "redux/selectors";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getUserData } from "redux/auth-operations";
 
 export const App = () => {
-  // const userName = useSelector(getUserName);
-  // const isLogin = useSelector(getLogging);
-  // console.dir(isLogin);
-  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserData());
+  }, [dispatch]);
+
   return (
     <div
       style={{

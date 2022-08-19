@@ -1,68 +1,74 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-const BASE_URL = 'https://connections-api.herokuapp.com'
-
-const customAxios = axios.create({
-    baseURL: BASE_URL,
-})
-
-const token = {
-    set(token) {
-        customAxios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    },
-    unset() {
-        customAxios.defaults.headers.common.Authorization = '';
-    },
-};
+import { token } from "./auth-token";
+import { customAxios } from "./axios";
 
 export const registerUser = createAsyncThunk(
-    'auth/register',
-    async (info) => {
-        try {
-            const { data } = await customAxios.post('/users/signup', info);
-            token.set(data.token);
-            return data;
-        } catch (error) {
-            console.log(error);
-        }
+  'auth/register',
+  async (info) => {
+    try {
+      const { data } = await customAxios.post('/users/signup', info);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      console.log(error);
     }
-)
+  }
+);
 
 export const loginUser = createAsyncThunk(
-    'auth/login',
-    async (info) => {
-        try {
-            const { data } = await customAxios.post('/users/login', info);
-            token.set(data.token);
-            return data;
-        } catch (error) {
-            console.log(error);
-        }
+  'auth/login',
+  async (info) => {
+    try {
+      const { data } = await customAxios.post('/users/login', info);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      console.log(error);
     }
-)
-
+  }
+);
 
 export const logoutUser = createAsyncThunk(
-    'auth/logout',
-    async () => {
-        try {
-            await customAxios.post('/users/logout');
-            token.unset();
-        } catch (error) {
-            console.log(error);
-        }
+  'auth/logout',
+  async () => {
+    try {
+      await customAxios.post('/users/logout');
+      token.unset();
+    } catch (error) {
+      console.log(error);
     }
+  }
+);
+
+export const getUserData = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      console.log('TOKEN NULL');
+      return thunkAPI.rejectWithValue();
+    } else {
+      token.set(persistedToken);
+      try {
+        const response = await customAxios.get('/users/current'); 
+        return response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 )
 
-export const getContacts = createAsyncThunk(
-    'contacts',
-    async (info) => {
-        try {
-            const response = await customAxios.post('/contacts', info);
-            console.log(response);
-        } catch (error) {
+// export const getContacts = createAsyncThunk(
+//     'contacts',
+//     async (info) => {
+//         try {
+//             const response = await customAxios.post('/contacts', info);
+//             console.log(response);
+//         } catch (error) {
             
-        }
-    }
-)
+//         }
+//     }
+// )
