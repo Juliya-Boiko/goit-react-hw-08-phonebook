@@ -3,11 +3,11 @@ import { SharedLayout } from "layouts/SharedLayout";
 import { useEffect, lazy, Suspense } from "react";
 import { useDispatch } from "react-redux";
 import { getUserData } from "redux/auth-operations";
-
+import { ContactsPage } from "pages/ContactsPage";
+// import { ContactsPage } from "pages/ContactsPage";
 const Homepage = lazy(() => import('pages/Homepage'));
 const Loginpage = lazy(() => import('pages/Loginpage'));
 const Registerpage = lazy(() => import('pages/Registerpage'));
-// const ContactsData = lazy(() => import('components/ContactsData'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -34,11 +34,7 @@ export const App = () => {
             <Route index element={<Homepage />} />
             <Route path="login" element={<Loginpage />} />
             <Route path="register" element={<Registerpage />} />
-            
-            
-              {/* <PrivateRoute path="/contacts">
-                <ContactsData />
-              </PrivateRoute> */}
+            <Route path="contacts" element={<ContactsPage />} />
             <Route path="*" element={<Homepage />} />
           </Route>
         </Routes>

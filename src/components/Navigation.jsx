@@ -1,8 +1,16 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getLogging } from "redux/auth-selectors";
+import { UserMenu } from "./UserMenu";
 
 export const Navigation = () => {
+    const isLogged = useSelector(getLogging);
+
     return (
-        <nav>
+        <div>
+            {isLogged
+                ? <UserMenu />
+                : <nav>
             <ul
                 style={{
                 display: 'flex',
@@ -21,6 +29,7 @@ export const Navigation = () => {
                     <NavLink to="/login">Login</NavLink>
                 </li>
             </ul>
-        </nav>
+        </nav>}
+        </div>
     );
 }

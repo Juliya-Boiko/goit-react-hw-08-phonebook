@@ -1,8 +1,10 @@
 import { useDispatch } from "react-redux";
 import { loginUser } from "redux/auth-operations";
+import { useNavigate } from "react-router";
 
  const Loginpage = () => {
-    const dispatch = useDispatch();
+     const dispatch = useDispatch();
+     const navigate = useNavigate();
 
     const submitHandler = (evt) => {
         evt.preventDefault();
@@ -12,6 +14,7 @@ import { loginUser } from "redux/auth-operations";
             password: formElements.password.value
         };
         dispatch(loginUser(newUser));
+        navigate('/contacts', { replace: true });
     }
 
     return (
