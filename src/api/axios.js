@@ -20,3 +20,7 @@ export const fetchAllContacts = async () => {
 export const fetchAddContact = async (contact) => {
     return await axios.post('/contacts', contact).then(response => response.data);
 };
+
+export const fetchDeleteContact = async (id) => {
+    return await axios.delete(`/contacts/${id}`).then(() => id);
+};
