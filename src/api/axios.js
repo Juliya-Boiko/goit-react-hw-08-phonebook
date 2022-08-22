@@ -24,3 +24,7 @@ export const fetchAddContact = async (contact) => {
 export const fetchDeleteContact = async (id) => {
     return await axios.delete(`/contacts/${id}`).then(() => id);
 };
+
+export const fetchEditContact = async ({id, name, number}) => {
+    return await axios.patch(`/contacts/${id}`, {name, number}).then(response => response.data);
+};

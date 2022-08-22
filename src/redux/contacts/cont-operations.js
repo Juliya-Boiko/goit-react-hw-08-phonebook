@@ -1,4 +1,9 @@
-import { fetchAllContacts, fetchAddContact, fetchDeleteContact} from "api/axios";
+import {
+  fetchAllContacts,
+  fetchAddContact,
+  fetchDeleteContact,
+  fetchEditContact
+} from "api/axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getAllContactsAsync = createAsyncThunk(
@@ -32,6 +37,19 @@ export const deleteContactAsync = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const data = await fetchDeleteContact(id);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const editContactAsync = createAsyncThunk(
+  'contacts/editContact',
+  async (contact, { rejectWithValue }) => {
+    try {
+      const data = await fetchEditContact(contact);
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error);

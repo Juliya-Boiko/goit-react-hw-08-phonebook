@@ -1,31 +1,34 @@
 import { useSelector, useDispatch } from "react-redux";
-import { deleteContactAsync, getAllContactsAsync } from "redux/contacts/cont-operations";
+import { getAllContactsAsync } from "redux/contacts/cont-operations";
 import { useEffect } from "react";
 import { getItems } from "redux/contacts/cont-selectors";
+import { ContactCard } from "./ContactCard";
+import { fetchEditContact } from "api/axios";
 
 export const ContactsList = () => {
     const dispatch = useDispatch();
     const items = useSelector(getItems);
 
-    useEffect(() => {
-        dispatch(getAllContactsAsync());
-    }, [dispatch]) 
+  useEffect(() => {
+    dispatch(getAllContactsAsync());
+  }, [dispatch]);
 
-  const deleteContact = id => {
-    console.log('DELETE CONTACT!');
-    dispatch(deleteContactAsync(id));
-  };
-
+  // console.log(fetchEditContact({
+  //   id: '6303dec88aa5ec001529fe3c',
+  //   name: 'fff',
+  //   number: '444'
+  // }));
   return (
-    <ul>
-        {items.map(({id, name, number}) => {
-            return (
-                <li key={id}>
-                    {name}: {number}
-                    <button type="button" onClick={() => deleteContact(id)}>Delete</button>
+    <div>
+      <ul>
+          {items.map((item) => {
+              return (
+                <li key={item.id}>
+                  <ContactCard item={item} />
                 </li>
-        );
-      })}
-    </ul>
+          );
+        })}
+      </ul>
+    </div>
   );
 };

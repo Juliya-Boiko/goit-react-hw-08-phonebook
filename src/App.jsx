@@ -63,7 +63,7 @@ export const App = () => {
                     <PrivateRoute>
                       <ContactsPage />
                     </PrivateRoute>} />
-                {/* <Route path="*" element={<Homepage />} /> */}
+                <Route path="*" element={<Homepage />} />
               </Route>
             </Routes>
           </Suspense>

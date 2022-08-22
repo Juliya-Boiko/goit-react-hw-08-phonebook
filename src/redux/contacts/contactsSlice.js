@@ -1,5 +1,10 @@
 // import { createReducer, combineReducers } from "@reduxjs/toolkit";
-import { getAllContactsAsync, addNewContactAsync, deleteContactAsync } from "./cont-operations";
+import {
+  getAllContactsAsync,
+  addNewContactAsync,
+  deleteContactAsync,
+  editContactAsync,
+} from "./cont-operations";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -19,5 +24,9 @@ export const contactsSlice = createSlice({
     [deleteContactAsync.fulfilled](state, action) {
       state.items = [...state.items.filter(item => item.id !== action.payload)]
     },
+    [editContactAsync.fulfilled](state, action) {
+      state.items = [...state.items.filter(item => item.id !== action.payload)]
+      //console.log(action);
+    }
   }
 });

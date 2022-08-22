@@ -1,16 +1,13 @@
 import { useSelector } from "react-redux";
 import { getLogging } from "redux/auth/auth-selectors";
 import { Navigate } from "react-router";
-import { ContactsPage } from "pages/ContactsPage";
 
 export const PrivateRoute = ({ children }) => {
-    const isLoggedIn = useSelector(getLogging);
+  const isLoggedIn = useSelector(getLogging);
 
-    return (
-        isLoggedIn
-            ? children
-            : <Navigate
-                to='/login'
-                replace={true} />
-    );
+	return (
+			isLoggedIn
+				? children
+				: <Navigate to='/login' replace={true} />
+	);
 }
