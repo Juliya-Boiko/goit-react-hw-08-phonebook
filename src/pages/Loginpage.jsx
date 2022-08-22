@@ -20,8 +20,7 @@ import { getLogging } from "redux/auth/auth-selectors";
      return (
         <div>
             {isLoggedIn
-                ? <Navigate to="/contacts" replace={true} />
-                : <div>
+                ? <Navigate to="contacts" replace={true} /> : <div>
                 <h2>LOG IN</h2>
                 <form onSubmit={submitHandler}
                     style={{

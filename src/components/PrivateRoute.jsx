@@ -3,18 +3,14 @@ import { getLogging } from "redux/auth/auth-selectors";
 import { Navigate } from "react-router";
 import { ContactsPage } from "pages/ContactsPage";
 
-export const PrivateRoute = () => {
+export const PrivateRoute = ({ children }) => {
     const isLoggedIn = useSelector(getLogging);
 
     return (
-        <div>
-            PrivateRoute
-            {isLoggedIn
-                ? <ContactsPage />
-                : <Navigate
-                    to='/login'
-                    replace={true} />
-            }
-        </div>
+        isLoggedIn
+            ? children
+            : <Navigate
+                to='/login'
+                replace={true} />
     );
 }

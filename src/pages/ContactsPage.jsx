@@ -1,19 +1,19 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllContacts, addNewContact } from "redux/contacts/cont-operations";
+//import { useEffect } from "react";
+//import { useDispatch, useSelector } from "react-redux";
+//import { getAllContacts, addNewContact } from "redux/contacts/cont-operations";
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
     //const dispatch = useDispatch();
     //const items = useSelector(state => state.contacts.items);
 
     const addHandler = (evt) => {
         evt.preventDefault();
-        const formElements = evt.target.elements;
-        const newContact = {
-            name: formElements.name.value,
-            number: formElements.number.value
-        };
-       //console.log(newContact);
+        // const formElements = evt.target.elements;
+        // const newContact = {
+        //     name: formElements.name.value,
+        //     number: formElements.number.value
+        // };
+        //console.log(newContact);
         //dispatch(addNewContact(newContact));
     }
 
@@ -32,9 +32,9 @@ export const ContactsPage = () => {
                     alignItems: 'center',
                 }}
                 onSubmit={addHandler}>
-                    <input type="text" name="name" placeholder="tel" />
-                    <input type="text" name="number" placeholder="name" />
-                    <button type="sublit">ADD CONTACT</button>
+                <input type="text" name="name" placeholder="tel" />
+                <input type="text" name="number" placeholder="name" />
+                <button type="sublit">ADD CONTACT</button>
             </form>
             {/* {items.length === 0 && <p>contacts list is empty</p>}
             {items.length > 0 && 
@@ -51,4 +51,5 @@ export const ContactsPage = () => {
             } */}
         </div>
     );
- }
+};
+export default ContactsPage;
