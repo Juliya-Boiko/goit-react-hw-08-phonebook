@@ -10,6 +10,6 @@ export const PublicRoute = ({
     const redirect = isLoggedIn && restricted;
     
     return (
-        redirect ? <Navigate to="/" /> : children
+        redirect ? <Navigate to="/contacts" /> : children
     );
 }; 
