@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
-import { loginUser } from "redux/auth-operations";
-import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "redux/auth/auth-operations";
+import { Navigate } from "react-router";
+import { getLogging } from "redux/auth/auth-selectors";
 
  const Loginpage = () => {
      const dispatch = useDispatch();
-     const navigate = useNavigate();
+     const isLoggedIn = useSelector(getLogging);
 
     const submitHandler = (evt) => {
         evt.preventDefault();
@@ -14,29 +15,32 @@ import { useNavigate } from "react-router";
             password: formElements.password.value
         };
         dispatch(loginUser(newUser));
-        navigate('/contacts', { replace: true });
     }
 
-    return (
+     return (
         <div>
-            <h2>LOG IN</h2>
-            <form onSubmit={submitHandler}
-            style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontSize: 20,
-            color: '#010101'
-            }}> 
-                <label htmlFor="email">Email</label>
-                <input id="email" type="text" name="email" />
-                <label htmlFor="password">Password</label>
-                <input id="password" type="text" name="password" />
-                <button type="submit">LOG IN</button>
-            </form>
+            {isLoggedIn
+                ? <Navigate to="/contacts" replace={true} />
+                : <div>
+                <h2>LOG IN</h2>
+                <form onSubmit={submitHandler}
+                    style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontSize: 20,
+                    color: '#010101'
+                }}> 
+                    <label htmlFor="email">Email</label>
+                    <input id="email" type="text" name="email" />
+                    <label htmlFor="password">Password</label>
+                    <input id="password" type="text" name="password" />
+                    <button type="submit">LOG IN</button>
+                </form>
+              </div>       
+            }
         </div>
-    )
- }
-
+    );
+}
 export default Loginpage;

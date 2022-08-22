@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { token } from "./auth-token";
-import { customAxios } from "./axios";
+import { token } from "api/axios";
+import axios from "axios";
 
 export const registerUser = createAsyncThunk(
   'auth/register',
-  async (info) => {
+  async (values) => {
     try {
-      const { data } = await customAxios.post('/users/signup', info);
+      const { data } = await axios.post('/users/signup', values);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -17,9 +17,9 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   'auth/login',
-  async (info) => {
+  async (values) => {
     try {
-      const { data } = await customAxios.post('/users/login', info);
+      const { data } = await axios.post('/users/login', values);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -32,7 +32,7 @@ export const logoutUser = createAsyncThunk(
   'auth/logout',
   async () => {
     try {
-      await customAxios.post('/users/logout');
+      await axios.post('/users/logout');
       token.unset();
     } catch (error) {
       console.log(error);
@@ -52,8 +52,8 @@ export const getUserData = createAsyncThunk(
     } else {
       token.set(persistedToken);
       try {
-        const response = await customAxios.get('/users/current'); 
-        return response.data;
+        const { data } = await axios.get('/users/current'); 
+        return data;
       } catch (error) {
         console.log(error);
       }

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { registerUser } from "redux/auth-operations";
+import { registerUser } from "redux/auth/auth-operations";
 
 const Registerpage = () => {
     const dispatch = useDispatch();
@@ -13,7 +13,6 @@ const Registerpage = () => {
             password: formElements.password.value
         };
         dispatch(registerUser(newUser)); 
-        // console.log(JSON.stringify(newUser));
     }
 
     return (

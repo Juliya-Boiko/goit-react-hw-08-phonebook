@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authSlice } from "./authSlice";
-import { contactsSlice } from "./contactsSlice";
+import { authSlice } from "./auth/authSlice";
+import { contactsSlice } from "./contacts/contactsSlice";
 import { persistStore, persistReducer, FLUSH,
   REHYDRATE,
   PAUSE,

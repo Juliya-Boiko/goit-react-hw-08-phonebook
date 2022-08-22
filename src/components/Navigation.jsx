@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getLogging } from "redux/auth-selectors";
+import { getLogging } from "redux/auth/auth-selectors";
 import { UserMenu } from "./UserMenu";
 
 export const Navigation = () => {
@@ -8,6 +8,8 @@ export const Navigation = () => {
 
     return (
         <div>
+            <NavLink to="/">Home</NavLink>
+            {isLogged && <NavLink to="/contacts">Contacts</NavLink>}
             {isLogged
                 ? <UserMenu />
                 : <nav>
@@ -19,9 +21,6 @@ export const Navigation = () => {
                 fontSize: 20,
                 color: '#010101'
             }}>
-                <li>
-                    <NavLink to="/">Home</NavLink>
-                </li>
                 <li>
                     <NavLink to="/register">Register</NavLink>
                 </li>
