@@ -9,7 +9,7 @@ import { PrivateRoute } from "components/Routes/PrivateRoute";
 import { AppBar } from "components/AppBar/AppBar";
 import { Container } from 'components/common/Container.styled';
 
-const Contacts = lazy(() => import('pages/Contacts'));
+const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 const Home = lazy(() => import('pages/Home/Home'));
 const Login = lazy(() => import('pages/Login'));
 const Register = lazy(() => import('pages/Register'));

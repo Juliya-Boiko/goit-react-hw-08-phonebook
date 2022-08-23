@@ -1,4 +1,6 @@
-import { Form, Formik } from "formik";
+import { Formik } from "formik";
+import { AddForm, AddInput } from "./AddContactForm.styled";
+import { PrimaryButton } from "components/common/PrimaryButton.styled";
 
 export const AddContactForm = ({ onSubmit }) => { 
   
@@ -8,23 +10,19 @@ export const AddContactForm = ({ onSubmit }) => {
       onSubmit={onSubmit}
     >
       {props => (
-        <Form>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
+        <AddForm>
+          <AddInput
             type="text"
             name="name"
             onChange={props.handleChange}
             value={props.values.name} />
-          <label htmlFor="password">Number</label>
-          <input
-            id="number"
+          <AddInput
             type="text"
             name="number"
             onChange={props.handleChange}
             value={props.values.number} />
-          <button type="submit">ADD NEW CONTACT</button>
-        </Form>
+          <PrimaryButton type="submit">ADD NEW CONTACT</PrimaryButton>
+        </AddForm>
       )}
     </Formik>
   );

@@ -1,7 +1,8 @@
 import { useRedux } from "hooks/useRedux";
 import { logoutUser, getUserName, getLogging } from "redux/authSlice";
 import { NavLink } from "react-router-dom";
-import { UserBarInfo, UserName, LogoutButton } from "./UserBar.styled";
+import { UserBarInfo, UserName } from "./UserBar.styled";
+import { PrimaryButton } from "components/common/PrimaryButton.styled";
 
 export const UserBar = () => {
   const [useSelector, dispatch] = useRedux();
@@ -17,7 +18,7 @@ export const UserBar = () => {
       {isLogged
         ? <UserBarInfo>
             <UserName>You are logged in as: {name}</UserName>
-            <LogoutButton type="button" onClick={logoutHandler}>EXIT</LogoutButton>
+            <PrimaryButton type="button" onClick={logoutHandler}>EXIT</PrimaryButton>
           </UserBarInfo> 
         : <ul>
             <li>

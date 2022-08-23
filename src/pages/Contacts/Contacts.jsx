@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { addNewContactAsync } from "redux/contactsSlice";
 import { AddContactForm } from "components/AddContactForm/AddContactForm";
 import { ContactsList } from "components/ContactsList/ContactsList";
+import { ContactsPage } from "./Contacts.styled";
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -16,11 +17,10 @@ const Contacts = () => {
   };
 
   return (
-    <div>
-    <p>CONTACTS PAGE</p>
-      <AddContactForm onSubmit={submitHandler}/>
-      <ContactsList />
-    </div>
+    <ContactsPage>
+      <AddContactForm onSubmit={submitHandler} />
+            <ContactsList />
+    </ContactsPage>
   );
 };
 
