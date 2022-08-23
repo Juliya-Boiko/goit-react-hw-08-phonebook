@@ -1,9 +1,9 @@
 import { Form, Formik } from "formik";
 
-export const AddForm = ({ onSubmit }) => { 
+export const EditContactForm = ({item, onSubmit}) => {
   return (
     <Formik
-      initialValues={{ name: '', number: '' }}
+      initialValues={{ name: item.name, number: item.number }}
       onSubmit={onSubmit}
     >
       {props => (
@@ -22,7 +22,7 @@ export const AddForm = ({ onSubmit }) => {
             name="number"
             onChange={props.handleChange}
             value={props.values.number} />
-          <button type="submit">ADD NEW CONTACT</button>
+          <button type="submit">EDIT CONTACT</button>
         </Form>
       )}
     </Formik>

@@ -1,17 +1,16 @@
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router";
 import { editContactAsync } from "redux/contacts/cont-operations";
+import { EditContactForm } from "components/EditContactForm/EditContactForm";
 
 export const Modal = ({ item, onClose }) => {
   const dispatch = useDispatch();
 
-  const editContact = (evt) => {
-    evt.preventDefault();
-    const form = evt.target.elements;
+  const submitHandler = (values) => {
     const contact = {
       id: item.id,
-      name: form.name.value,
-      number: form.number.value,
+      name: values.name,
+      number: values.number,
     };
     dispatch(editContactAsync(contact));
     onClose();
@@ -20,11 +19,7 @@ export const Modal = ({ item, onClose }) => {
 
   return (
     <div>
-      <form onSubmit={editContact}>
-        <input type="text" name="name" placeholder={item.name} />
-        <input type="text" name="number" placeholder={item.number} />
-        <button type="submit">UPDATE CONTACT</button>
-      </form>
+      <EditContactForm item={item} onSubmit={submitHandler} />
       <button type="button" onClick={onClose}>
         Close modal
       </button>

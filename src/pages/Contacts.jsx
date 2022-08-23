@@ -1,7 +1,7 @@
 import { ContactsList } from "components/ContactsList/ContactsList";
 import { useDispatch } from "react-redux";
 import { addNewContactAsync } from "redux/contacts/cont-operations";
-import { AddForm } from "components/AddForm/AddForm";
+import { AddContactForm } from "components/AddContactForm/AddContactForm";
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Contacts = () => {
   return (
     <div>
     <p>CONTACTS PAGE</p>
-      <AddForm onSubmit={submitHandler}/>
+      <AddContactForm onSubmit={submitHandler}/>
       <ContactsList />
     </div>
   );
