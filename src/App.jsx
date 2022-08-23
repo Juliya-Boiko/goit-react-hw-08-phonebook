@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import { PublicRoute } from "components/Routes/PublicRoute";
 import { PrivateRoute } from "components/Routes/PrivateRoute";
 import { AppBar } from "components/AppBar/AppBar";
+import { Container } from 'components/common/Container.styled';
 
 const Contacts = lazy(() => import('pages/Contacts'));
 const Home = lazy(() => import('pages/Home'));
@@ -22,7 +23,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <Container>
       {isRefreshing
         ? <FadeLoader color="red" size={150} />
         : <Suspense fallback={<FadeLoader color="red" size={150} />}>
@@ -40,6 +41,6 @@ export const App = () => {
               </Route>
             </Routes>
           </Suspense>}
-    </div>
+    </Container>
   );
 };

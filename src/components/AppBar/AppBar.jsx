@@ -1,17 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { NavBar } from "components/NavBar/NavBar";
 import { UserBar } from "components/UserBar/UserBar";
+import { AppBarHeader } from "./AppBar.styled";
 
 export const AppBar = () => {
 
   return (
     <div>
-      <header>
-        <div>
+      <AppBarHeader>
           <NavBar />
           <UserBar />
-        </div>
-      </header>
+      </AppBarHeader>
       <Outlet />
     </div>
   )
