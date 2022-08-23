@@ -1,4 +1,5 @@
 import 'modern-normalize';
+import FadeLoader from "react-spinners/ClipLoader";
 import { useEffect, lazy, Suspense } from "react";
 import { useRedux } from 'hooks/useRedux';
 import { getUserData, getRefreshing} from "redux/authSlice";
@@ -23,8 +24,8 @@ export const App = () => {
   return (
     <div>
       {isRefreshing
-        ? <p>LOADIND...</p>
-        : <Suspense fallback={<p>Loading...</p>}>
+        ? <FadeLoader color="red" size={150} />
+        : <Suspense fallback={<FadeLoader color="red" size={150} />}>
             <Routes>
               <Route path="/" element={<AppBar />}>
                 <Route index path="/"
