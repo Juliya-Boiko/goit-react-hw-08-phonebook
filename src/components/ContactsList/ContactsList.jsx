@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useRedux } from "hooks/useRedux";
 import { getItems, getAllContactsAsync } from "redux/contactsSlice";
 import { Contact } from "components/Contact/Contact";
 
 export const ContactsList = () => {
-    const dispatch = useDispatch();
-    const items = useSelector(getItems);
+  const [useSelector, dispatch] = useRedux();
+  const items = useSelector(getItems);
 
   useEffect(() => {
     dispatch(getAllContactsAsync());

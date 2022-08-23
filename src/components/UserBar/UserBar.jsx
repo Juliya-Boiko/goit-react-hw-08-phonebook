@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useRedux } from "hooks/useRedux";
 import { NavLink } from "react-router-dom";
 import { logoutUser, getUserName, getLogging } from "redux/authSlice";
 
 export const UserBar = () => {
-  const dispatch = useDispatch();
+  const [useSelector, dispatch] = useRedux();
   const name = useSelector(getUserName);
   const isLogged = useSelector(getLogging);
 

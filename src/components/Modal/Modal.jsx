@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useRedux } from "hooks/useRedux";
 import { Navigate } from "react-router";
 import { editContactAsync } from "redux/contactsSlice";
 import { EditContactForm } from "components/EditContactForm/EditContactForm";
 
 export const Modal = ({ item, onClose }) => {
-  const dispatch = useDispatch();
+   const [_, dispatch] = useRedux();
 
   const submitHandler = (values) => {
     const contact = {

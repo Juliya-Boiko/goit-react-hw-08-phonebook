@@ -1,8 +1,9 @@
-import { useSelector } from "react-redux";
+import { useRedux } from "hooks/useRedux";
 import { NavLink } from "react-router-dom";
 import { getLogging } from "redux/authSlice";
 
 export const NavBar = () => {
+  const [useSelector] = useRedux();
   const isLogged = useSelector(getLogging);
 
   return (
