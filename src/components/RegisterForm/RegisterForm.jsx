@@ -1,6 +1,7 @@
 import { Form, Formik } from "formik";
 
 export const RegisterForm = ({ onSubmit }) => {
+  
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}

@@ -1,7 +1,7 @@
-import { ContactsList } from "components/ContactsList/ContactsList";
 import { useDispatch } from "react-redux";
 import { addNewContactAsync } from "redux/contactsSlice";
 import { AddContactForm } from "components/AddContactForm/AddContactForm";
+import { ContactsList } from "components/ContactsList/ContactsList";
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Contacts = () => {
     }
     dispatch(addNewContactAsync(contact));
     resetForm();
-  }
+  };
 
   return (
     <div>

@@ -11,14 +11,14 @@ const Login = () => {
       password: values.password,
     };
     dispatch(loginUser(user));
-  }
+  };
 
   return (
-    <div>        
+    <div>
       <h2>LOG IN</h2>
       <LoginForm onSubmit={submitHandler} />
     </div>
   );
-}
+};
 
 export default Login;

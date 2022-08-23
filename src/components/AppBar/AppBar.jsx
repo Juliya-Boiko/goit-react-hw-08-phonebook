@@ -15,4 +15,4 @@ export const AppBar = () => {
       <Outlet />
     </div>
   )
-}
+};

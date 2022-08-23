@@ -8,7 +8,7 @@ export const UserBar = () => {
   const isLogged = useSelector(getLogging);
 
   const logoutHandler = () => {
-      dispatch(logoutUser());
+    dispatch(logoutUser());
   }
   
   return (

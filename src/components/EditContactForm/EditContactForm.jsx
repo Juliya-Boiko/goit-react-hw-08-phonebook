@@ -1,6 +1,7 @@
 import { Form, Formik } from "formik";
 
-export const EditContactForm = ({item, onSubmit}) => {
+export const EditContactForm = ({ item, onSubmit }) => {
+  
   return (
     <Formik
       initialValues={{ name: item.name, number: item.number }}

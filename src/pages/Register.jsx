@@ -3,23 +3,23 @@ import { registerUser } from "redux/authSlice";
 import { RegisterForm } from "components/RegisterForm/RegisterForm";
 
 const Register = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const submitHandler = (values) => {
-        const user = {
-            name: values.name,
-            email: values.email,
-            password: values.password,
-        };
-        dispatch(registerUser(user)); 
-    }
+  const submitHandler = (values) => {
+    const user = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    };
+    dispatch(registerUser(user));
+  };
 
-    return (
-        <div>
-            <h2>REGISTER PAGE</h2>
-            <RegisterForm onSubmit={submitHandler} />
-        </div>
-    )
-}
+  return (
+    <div>
+      <h2>REGISTER PAGE</h2>
+      <RegisterForm onSubmit={submitHandler} />
+    </div>
+  );
+};
 
 export default Register;

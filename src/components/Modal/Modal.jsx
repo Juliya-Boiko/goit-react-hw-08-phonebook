@@ -25,7 +25,7 @@ export const Modal = ({ item, onClose }) => {
       </button>
     </div>
   );
-}
+};
 
 // export const Modal = ({ onClose, src }) => {
 //   useEffect(() => {
