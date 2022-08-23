@@ -13,7 +13,7 @@ const Home = () => {
           media="(min-width: 1200px)" width="800px"/>
         <source srcSet={imgTablet}
             media="(min-width: 768px)" width="400px"/>
-        <source srcset={imgMobile}
+        <source srcSet={imgMobile}
               media="(min-width: 320px)" width="280px"/>
         <img src={imgMobile} alt="Calmar" />
       </picture>

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useRedux } from "hooks/useRedux";
 import { getItems, getAllContactsAsync } from "redux/contactsSlice";
 import { Contact } from "components/Contact/Contact";
+import { ContactListItem } from "./ContactsList.styled";
 
 export const ContactsList = () => {
   const [useSelector, dispatch] = useRedux();
@@ -15,9 +16,9 @@ export const ContactsList = () => {
     <ul>
       {items.map((item) => {
         return (
-          <li key={item.id}>
+          <ContactListItem key={item.id}>
             <Contact item={item} />
-          </li>
+          </ContactListItem>
         );
       })}
     </ul>

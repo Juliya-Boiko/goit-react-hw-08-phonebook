@@ -8,6 +8,7 @@ border-radius: 2px;
 outline: 1px solid ${p => p.theme.colors.white};
 background-color: transparent;
 color: ${p => p.theme.colors.white};
+cursor: pointer;
 
 @media screen and (max-width: 425px) {
   padding: 3px 10px;

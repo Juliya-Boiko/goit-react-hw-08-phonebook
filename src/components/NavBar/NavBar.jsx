@@ -10,7 +10,7 @@ export const NavBar = () => {
   return (
     <NavBarList>
       <NavBarItem>
-        <NavBarLink to="/"><NavBarIcon size="40px" /></NavBarLink>
+        <NavBarLink to="/"><NavBarIcon size="30px" /></NavBarLink>
       </NavBarItem>
       {isLogged && <NavBarItem><NavBarLink to="/contacts">Contacts</NavBarLink></NavBarItem>}
     </NavBarList>
