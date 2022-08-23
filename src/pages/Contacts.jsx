@@ -2,7 +2,7 @@ import { ContactsList } from "components/ContactsList";
 import { useDispatch } from "react-redux";
 import { addNewContactAsync } from "redux/contacts/cont-operations";
 
-const ContactsPage = () => {
+const Contacts = () => {
     const dispatch = useDispatch();
    
     const addHandler = (evt) => {
@@ -36,4 +36,4 @@ const ContactsPage = () => {
         </div>
     );
 };
-export default ContactsPage;
+export default Contacts;

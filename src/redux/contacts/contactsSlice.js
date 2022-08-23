@@ -19,14 +19,13 @@ export const contactsSlice = createSlice({
       state.items = [...action.payload];
     },
     [addNewContactAsync.fulfilled](state, action) {
-      state.items = [action.payload, ...state.items];
+      state.items = [...action.payload];
     },
     [deleteContactAsync.fulfilled](state, action) {
-      state.items = [...state.items.filter(item => item.id !== action.payload)]
+      state.items = [...action.payload]
     },
     [editContactAsync.fulfilled](state, action) {
-      state.items = [...state.items.filter(item => item.id !== action.payload)]
-      //console.log(action);
+      state.items = [...action.payload]
     }
   }
 });

@@ -1,7 +1,7 @@
- const Homepage = () => {
+ const Home = () => {
     return (
         <div>Home PAGE</div>
     )
  }
 
-export default Homepage;
+export default Home;

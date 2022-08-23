@@ -8,51 +8,55 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getAllContactsAsync = createAsyncThunk(
   'contacts/getAllContacts',
-  async (_, { rejectWithValue }) => {
+  async () => {
     try {
       const data = await fetchAllContacts();
       //console.log('Request all contacts answer:', data);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      console.log(error);
     }
   }
 );
 
 export const addNewContactAsync = createAsyncThunk(
   'contacts/addContacts',
-  async (contact, { rejectWithValue }) => {
+  async (contact) => {
     try {
-      const data = fetchAddContact(contact);
+      await fetchAddContact(contact);
+      const data = await fetchAllContacts();
       //console.log('ADD answer:', data);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      console.log(error);
     }
   }
 );
 
 export const deleteContactAsync = createAsyncThunk(
   'contacts/deleteContact',
-  async (id, { rejectWithValue }) => {
+  async (id) => {
     try {
-      const data = await fetchDeleteContact(id);
+      await fetchDeleteContact(id);
+      const data = await fetchAllContacts();
+      //console.log('DELETE answer:', data);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      console.log(error);
     }
   }
 );
 
 export const editContactAsync = createAsyncThunk(
   'contacts/editContact',
-  async (contact, { rejectWithValue }) => {
+  async (contact) => {
     try {
-      const data = await fetchEditContact(contact);
-      console.log(data);
+      await fetchEditContact(contact);
+      const data = fetchAllContacts();
+      //console.log('EDIT answer:', data);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      console.log(error);
     }
   }
 );
