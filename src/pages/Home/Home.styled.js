@@ -7,20 +7,8 @@ export const HomePage = styled.div`
   justify-content: center;
 `;
 
-// export const HomePicture = styled.picture`
-
-//   width: 100%;
-
-//   // @media screen and (min-width: 768px) and (max-width: 1199px) {
-//   //   padding: 0 100px;
-//   // }
-
-//   // @media screen and (min-width: 1200px) {
-//   //   padding: 0 200px;
-//   // }
-// `;
-
 export const HomeTitle = styled.h1`
+  margin-bottom: 20px;
   font-weight: ${p => p.theme.fontWeight.bold};
   text-align: center;
   color: ${p => p.theme.colors.white};
@@ -32,5 +20,20 @@ export const HomeTitle = styled.h1`
 
   @media screen and (min-width: 1200px) {
     font-size: 40px;
+  }
+`;
+
+export const HomeText = styled.p`
+display: block;
+  text-align: center;
+  color: ${p => p.theme.colors.white};
+  font-size: 14px;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    max-width: 400px;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 600px;
+    font-size: 20px;
   }
 `;
