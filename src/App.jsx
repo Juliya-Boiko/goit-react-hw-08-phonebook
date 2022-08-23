@@ -10,7 +10,7 @@ import { AppBar } from "components/AppBar/AppBar";
 import { Container } from 'components/common/Container.styled';
 
 const Contacts = lazy(() => import('pages/Contacts'));
-const Home = lazy(() => import('pages/Home'));
+const Home = lazy(() => import('pages/Home/Home'));
 const Login = lazy(() => import('pages/Login'));
 const Register = lazy(() => import('pages/Register'));
 
