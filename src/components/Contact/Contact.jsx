@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Modal } from "./Modal";
+import { Modal } from "components/Modal/Modal";
 import { deleteContactAsync } from "redux/contacts/cont-operations";
 
-export const ContactCard = ({ item }) => {
+export const Contact = ({ item }) => { 
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   
@@ -16,7 +16,6 @@ export const ContactCard = ({ item }) => {
   };
 
   const deleteContact = id => {
-    //console.log('DELETE CONTACT!');
     dispatch(deleteContactAsync(id));
   };
 
@@ -28,4 +27,4 @@ export const ContactCard = ({ item }) => {
       {isModalOpen && <Modal item={item} onClose={closeModal} />}
     </div>
   );
-}
+};

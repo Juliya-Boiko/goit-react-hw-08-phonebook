@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { PublicRoute } from "components/PublicRoute";
-import { PrivateRoute } from "components/PrivateRoute";
+import { PublicRoute } from "components/Routes/PublicRoute";
+import { PrivateRoute } from "components/Routes/PrivateRoute";
 import { AppBar } from "components/AppBar/AppBar";
 import { getUserData } from "redux/auth/auth-operations";
 import { getRefreshing } from "redux/auth/auth-selectors";

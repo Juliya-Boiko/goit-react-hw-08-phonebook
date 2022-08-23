@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllContactsAsync } from "redux/contacts/cont-operations";
 import { useEffect } from "react";
 import { getItems } from "redux/contacts/cont-selectors";
-import { ContactCard } from "./ContactCard";
+import { Contact } from "components/Contact/Contact";
 
 export const ContactsList = () => {
     const dispatch = useDispatch();
@@ -13,16 +13,14 @@ export const ContactsList = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <ul>
-          {items.map((item) => {
-              return (
-                <li key={item.id}>
-                  <ContactCard item={item} />
-                </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul>
+      {items.map((item) => {
+        return (
+          <li key={item.id}>
+            <Contact item={item} />
+          </li>
+        );
+      })}
+    </ul>
   );
 };

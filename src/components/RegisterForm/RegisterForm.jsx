@@ -13,18 +13,24 @@ export const RegisterForm = ({ onSubmit }) => {
             id="name"
             type="text"
             name="name"
-            placeholder="name" />
+            placeholder="name"
+            onChange={props.handleChange}
+            value={props.values.name} />
           <label htmlFor="email">Email</label>
           <input
             id="email"
             type="text"
             name="email"
-            placeholder="email" />
+            placeholder="email"
+            onChange={props.handleChange}
+            value={props.values.email} />
           <label htmlFor="password">Password</label>
           <input
             id="password"
             type="text"
-            name="password" />
+            name="password"
+            onChange={props.handleChange}
+            value={props.values.password} />
           <button type="submit">REGISTER</button>
         </Form>
       )}

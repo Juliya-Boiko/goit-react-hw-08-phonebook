@@ -5,15 +5,13 @@ import { RegisterForm } from "components/RegisterForm/RegisterForm";
 const Register = () => {
     const dispatch = useDispatch();
 
-    const submitHandler = (evt) => {
-        evt.preventDefault();
-        const formElements = evt.target.elements;
-        const newUser = {
-            name: formElements.name.value,
-            email: formElements.email.value,
-            password: formElements.password.value
+    const submitHandler = (values) => {
+        const user = {
+            name: values.name,
+            email: values.email,
+            password: values.password,
         };
-        dispatch(registerUser(newUser)); 
+        dispatch(registerUser(user)); 
     }
 
     return (
