@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
 import { registerUser } from "redux/auth/auth-operations";
+import { RegisterForm } from "components/RegisterForm/RegisterForm";
 
-const Register= () => {
+const Register = () => {
     const dispatch = useDispatch();
 
     const submitHandler = (evt) => {
@@ -17,24 +18,8 @@ const Register= () => {
 
     return (
         <div>
-            <h2>REGISTER</h2>
-            <form onSubmit={submitHandler}
-            style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontSize: 20,
-            color: '#010101'
-            }}> 
-                <label htmlFor="name">Name</label>
-                <input id="name" type="text" name="name" />
-                <label htmlFor="email">Email</label>
-                <input id="email" type="text" name="email" />
-                <label htmlFor="password">Password</label>
-                <input id="password" type="text" name="password" />
-                <button type="submit">REGISTER</button>
-            </form>
+            <h2>REGISTER PAGE</h2>
+            <RegisterForm onSubmit={submitHandler} />
         </div>
     )
 }
