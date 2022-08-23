@@ -1,10 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import 'modern-normalize';
 import { useEffect, lazy, Suspense } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useRedux } from 'hooks/useRedux';
+import { getUserData, getRefreshing} from "redux/authSlice";
+import { Routes, Route } from "react-router-dom";
 import { PublicRoute } from "components/Routes/PublicRoute";
 import { PrivateRoute } from "components/Routes/PrivateRoute";
 import { AppBar } from "components/AppBar/AppBar";
-import { getUserData, getRefreshing} from "redux/authSlice";
 
 const Contacts = lazy(() => import('pages/Contacts'));
 const Home = lazy(() => import('pages/Home'));
@@ -12,7 +13,7 @@ const Login = lazy(() => import('pages/Login'));
 const Register = lazy(() => import('pages/Register'));
 
 export const App = () => {
-  const dispatch = useDispatch();
+  const [useSelector, dispatch] = useRedux();
   const isRefreshing = useSelector(getRefreshing);
 
   useEffect(() => {
