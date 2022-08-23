@@ -1,3 +1,4 @@
+import { Notify } from "notiflix";
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { token } from "api/axios";
@@ -29,7 +30,7 @@ export const registerUser = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      console.log(error);
+      Notify.failure(error);
     }
   }
 );
@@ -42,7 +43,7 @@ export const loginUser = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      console.log(error);
+      Notify.failure(error);
     }
   }
 );
@@ -54,7 +55,7 @@ export const logoutUser = createAsyncThunk(
       await axios.post('/users/logout');
       token.unset();
     } catch (error) {
-      console.log(error);
+      Notify.failure(error);
     }
   }
 );
@@ -66,14 +67,14 @@ export const getUserData = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
+      Notify.failure("Please login!");
     } else {
       token.set(persistedToken);
       try {
         const { data } = await axios.get('/users/current'); 
         return data;
       } catch (error) {
-        console.log(error);
+        Notify.failure(error);
       }
     }
   }

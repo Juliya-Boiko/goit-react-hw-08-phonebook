@@ -1,3 +1,4 @@
+import { Notify } from "notiflix";
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAllContacts, fetchAddContact, fetchDeleteContact, fetchEditContact } from "api/contactsApi";
@@ -18,7 +19,7 @@ export const getAllContactsAsync = createAsyncThunk(
       const data = await fetchAllContacts();
       return data;
     } catch (error) {
-      console.log(error);
+      Notify.failure(error);
     }
   }
 );
@@ -28,10 +29,11 @@ export const addNewContactAsync = createAsyncThunk(
   async (contact) => {
     try {
       await fetchAddContact(contact);
+      Notify.success('Contact added!');
       const data = await fetchAllContacts();
       return data;
     } catch (error) {
-      console.log(error);
+      Notify.failure(error);
     }
   }
 );
@@ -41,10 +43,11 @@ export const deleteContactAsync = createAsyncThunk(
   async (id) => {
     try {
       await fetchDeleteContact(id);
+      Notify.success('Contact deleted!');
       const data = await fetchAllContacts();
       return data;
     } catch (error) {
-      console.log(error);
+      Notify.failure(error);
     }
   }
 );
@@ -54,10 +57,11 @@ export const editContactAsync = createAsyncThunk(
   async (contact) => {
     try {
       await fetchEditContact(contact);
+      Notify.success('Contact edited!');
       const data = fetchAllContacts();
       return data;
     } catch (error) {
-      console.log(error);
+      Notify.failure(error);
     }
   }
 );
