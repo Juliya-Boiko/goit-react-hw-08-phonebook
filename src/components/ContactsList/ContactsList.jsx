@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { getAllContactsAsync } from "redux/contacts/cont-operations";
+import { getAllContactsAsync } from "redux/contactsSlice";
 import { useEffect } from "react";
-import { getItems } from "redux/contacts/cont-selectors";
+import { getItems } from "redux/contactsSlice";
 import { Contact } from "components/Contact/Contact";
 
 export const ContactsList = () => {

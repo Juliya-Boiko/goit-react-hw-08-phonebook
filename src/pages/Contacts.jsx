@@ -1,6 +1,6 @@
 import { ContactsList } from "components/ContactsList/ContactsList";
 import { useDispatch } from "react-redux";
-import { addNewContactAsync } from "redux/contacts/cont-operations";
+import { addNewContactAsync } from "redux/contactsSlice";
 import { AddContactForm } from "components/AddContactForm/AddContactForm";
 
 const Contacts = () => {

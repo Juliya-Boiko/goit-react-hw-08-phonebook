@@ -1,17 +1,21 @@
-import {
-  fetchAllContacts,
-  fetchAddContact,
-  fetchDeleteContact,
-  fetchEditContact
-} from "api/axios";
+import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { fetchAllContacts, fetchAddContact, fetchDeleteContact, fetchEditContact } from "api/contactsApi";
 
+// ================== INITIAL STATE
+const initialState = {
+    items: [],
+};
+
+// ================== SELECTORS
+export const getItems = state => state.contacts.items;
+
+// ================== ASYNC OPERATIONS
 export const getAllContactsAsync = createAsyncThunk(
   'contacts/getAllContacts',
   async () => {
     try {
       const data = await fetchAllContacts();
-      //console.log('Request all contacts answer:', data);
       return data;
     } catch (error) {
       console.log(error);
@@ -25,7 +29,6 @@ export const addNewContactAsync = createAsyncThunk(
     try {
       await fetchAddContact(contact);
       const data = await fetchAllContacts();
-      //console.log('ADD answer:', data);
       return data;
     } catch (error) {
       console.log(error);
@@ -39,7 +42,6 @@ export const deleteContactAsync = createAsyncThunk(
     try {
       await fetchDeleteContact(id);
       const data = await fetchAllContacts();
-      //console.log('DELETE answer:', data);
       return data;
     } catch (error) {
       console.log(error);
@@ -53,10 +55,29 @@ export const editContactAsync = createAsyncThunk(
     try {
       await fetchEditContact(contact);
       const data = fetchAllContacts();
-      //console.log('EDIT answer:', data);
       return data;
     } catch (error) {
       console.log(error);
     }
   }
 );
+
+// ================== REDUSER
+export const contactsSlice = createSlice({
+  name: 'contacts',
+  initialState,
+  extraReducers: {
+    [getAllContactsAsync.fulfilled](state, action) {
+      state.items = [...action.payload];
+    },
+    [addNewContactAsync.fulfilled](state, action) {
+      state.items = [...action.payload];
+    },
+    [deleteContactAsync.fulfilled](state, action) {
+      state.items = [...action.payload]
+    },
+    [editContactAsync.fulfilled](state, action) {
+      state.items = [...action.payload]
+    }
+  }
+});

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Modal } from "components/Modal/Modal";
-import { deleteContactAsync } from "redux/contacts/cont-operations";
+import { deleteContactAsync } from "redux/contactsSlice";
 
 export const Contact = ({ item }) => { 
   const dispatch = useDispatch();

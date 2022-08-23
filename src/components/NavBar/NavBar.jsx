@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getLogging } from "redux/auth/auth-selectors";
+import { getLogging } from "redux/authSlice";
 
 export const NavBar = () => {
   const isLogged = useSelector(getLogging);

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { loginUser } from "redux/auth/auth-operations";
+import { loginUser } from "redux/authSlice";
 import { LoginForm } from "components/LoginForm/LoginForm";
 
 const Login = () => {

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { registerUser } from "redux/auth/auth-operations";
+import { registerUser } from "redux/authSlice";
 import { RegisterForm } from "components/RegisterForm/RegisterForm";
 
 const Register = () => {

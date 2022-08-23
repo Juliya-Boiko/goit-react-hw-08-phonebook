@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { logoutUser } from "redux/auth/auth-operations";
-import { getUserName, getLogging } from "redux/auth/auth-selectors";
+import { logoutUser, getUserName, getLogging } from "redux/authSlice";
 
 export const UserBar = () => {
   const dispatch = useDispatch();

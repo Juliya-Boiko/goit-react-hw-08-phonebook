@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PublicRoute } from "components/Routes/PublicRoute";
 import { PrivateRoute } from "components/Routes/PrivateRoute";
 import { AppBar } from "components/AppBar/AppBar";
-import { getUserData } from "redux/auth/auth-operations";
-import { getRefreshing } from "redux/auth/auth-selectors";
+import { getUserData, getRefreshing} from "redux/authSlice";
 
 const Contacts = lazy(() => import('pages/Contacts'));
 const Home = lazy(() => import('pages/Home'));

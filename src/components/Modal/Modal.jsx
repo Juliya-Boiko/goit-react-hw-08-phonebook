@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router";
-import { editContactAsync } from "redux/contacts/cont-operations";
+import { editContactAsync } from "redux/contactsSlice";
 import { EditContactForm } from "components/EditContactForm/EditContactForm";
 
 export const Modal = ({ item, onClose }) => {
