@@ -9,7 +9,7 @@ export const NavBar = () => {
   return (
     <NavBarList>
       <NavBarItem>
-        <NavBarLink to="/"><NavBarIcon size="30px" /></NavBarLink>
+        <NavBarLink to="/"><NavBarIcon size="20px" /></NavBarLink>
       </NavBarItem>
       {isLogged && <NavBarItem><NavBarLink to="contacts">Contacts</NavBarLink></NavBarItem>}
     </NavBarList>

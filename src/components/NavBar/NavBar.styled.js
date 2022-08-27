@@ -30,8 +30,22 @@ export const NavBarIcon = styled(RiHome2Line)`
 `;
 
 export const NavBarLink = styled(NavLink)`
+  display: block ;
+  position: relative;
   font-size: 14px;
   font-weight: ${p => p.theme.fontWeight.bold};
   text-transform: uppercase;
   color: ${p => p.theme.colors.white};
+
+  &.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${p => p.theme.colors.white};;
+    border-radius: 2px;
+  }
 `;

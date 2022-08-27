@@ -13,3 +13,9 @@ export const ContactListItem = styled.li`
     font-size: 14px;
   }
 `;
+
+export const EmptyList = styled.div`
+  max-width: 200px;
+  text-align: center;
+  font-size: 14px;
+`;

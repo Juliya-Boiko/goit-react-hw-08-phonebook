@@ -3,7 +3,7 @@ import { Notify } from "notiflix";
 import { Formik, ErrorMessage } from "formik";
 import { useRedux } from "hooks/useRedux";
 import { editContactAsync, getItems } from "redux/contactsSlice";
-import { formShema } from "components/common/formShema";
+import { contactSchema } from "components/common/formsSchema";
 import { EditForm } from "./EditContactForm.styled";
 import { Input } from "components/common/Input.styled.";
 import { ErrorText } from "components/common/ErrorText.styled";
@@ -48,7 +48,7 @@ export const EditContactForm = ({ item, onClose }) => {
     <Formik
       initialValues={{ name: item.name, number: item.number }}
       onSubmit={submitHandler}
-      validationSchema={formShema}
+      validationSchema={contactSchema}
     >
       {props => (
         <EditForm>

@@ -31,7 +31,7 @@ export const LoginForm = () => {
             onChange={props.handleChange}
             value={props.values.email} />
           <LoginInput
-            type="text"
+            type="password"
             name="password"
             placeholder="password"
             onChange={props.handleChange}

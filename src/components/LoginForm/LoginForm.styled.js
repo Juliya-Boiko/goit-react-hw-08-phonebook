@@ -6,15 +6,10 @@ export const LoginFormm = styled(Form)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* max-width: 200px; */
-  /* @media screen and (max-width: 640px) {
-    margin: 0 0 30px 0;
-  } */
 `;
 
 export const LoginInput = styled(Field)`
   display: block;
-  /* width: 100%; */
   margin: 0 0 10px 0;
   padding: 8px;
   background-color: #F3F3F3;

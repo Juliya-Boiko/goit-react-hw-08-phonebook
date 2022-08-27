@@ -2,7 +2,7 @@ import { Notify } from "notiflix";
 import { Formik, ErrorMessage } from "formik";
 import { getItems, addNewContactAsync } from "redux/contactsSlice";
 import { useRedux } from "hooks/useRedux";
-import { formShema } from "components/common/formShema";
+import { contactSchema } from "components/common/formsSchema";
 import { AddForm } from "./AddContactForm.styled";
 import { ErrorText } from "components/common/ErrorText.styled";
 import { Input } from "components/common/Input.styled.";
@@ -46,7 +46,7 @@ export const AddContactForm = () => {
     <Formik
       initialValues={{ name: '', number: '' }}
       onSubmit={submitHandler}
-      validationSchema={formShema}
+      validationSchema={contactSchema}
     >
       {props => (
         <AddForm>

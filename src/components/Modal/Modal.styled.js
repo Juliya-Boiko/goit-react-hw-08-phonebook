@@ -24,16 +24,22 @@ export const ModalContainer = styled.div`
 `;
 
 export const CloseModalButton = styled.button`
-position: absolute;
-top: -40px;
-right: -40px;
+  position: absolute;
+  top: -40px;
+  right: -40px;
   padding: 5px;
   border: none;
   outline: none;
   background-color: transparent;
   color: ${p => p.theme.colors.white};
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    color: #D45B78;
+  }
 `;
 
 export const CloseModalIcon = styled(RiCloseFill)`
-  color: ${p => p.theme.colors.white};
+  color: inherit;
 `;
