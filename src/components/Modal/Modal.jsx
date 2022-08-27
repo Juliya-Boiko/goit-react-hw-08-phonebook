@@ -1,55 +1,47 @@
-import { useRedux } from "hooks/useRedux";
-import { Navigate } from "react-router";
-import { editContactAsync } from "redux/contactsSlice";
+
+import { useEffect } from "react";
 import { EditContactForm } from "components/EditContactForm/EditContactForm";
+import { ModalBackdrop, CloseModalButton, CloseModalIcon } from "./Modal.styled";
 
 export const Modal = ({ item, onClose }) => {
-   const [_, dispatch] = useRedux();
 
-  const submitHandler = (values) => {
-    const contact = {
-      id: item.id,
-      name: values.name,
-      number: values.number,
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        onClose();
+      }
     };
-    dispatch(editContactAsync(contact));
-    onClose();
-    <Navigate to="/contacts" />
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
+  const handleBackdropClick = e => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
   };
 
   return (
-    <div>
-      <EditContactForm item={item} onSubmit={submitHandler} />
-      <button type="button" onClick={onClose}>
-        Close modal
-      </button>
-    </div>
+    <ModalBackdrop onClick={handleBackdropClick}>
+      <CloseModalButton type="button" onClick={onClose}>
+        <CloseModalIcon size="30px" />
+      </CloseModalButton>
+      <EditContactForm item={item} onClose={onClose} />
+    </ModalBackdrop>
   );
 };
 
-// export const Modal = ({ onClose, src }) => {
-//   useEffect(() => {
-//     const handleKeyDown = e => {
-//       if (e.code === 'Escape') {
-//         onClose();
-//       }
-//     };
 
-//     window.addEventListener('keydown', handleKeyDown);
-//     return () => {
-//       window.removeEventListener('keydown', handleKeyDown);
-//     };
-//   }, [onClose]);
 
-//   const handleBackdropClick = e => {
-//     if (e.target === e.currentTarget) {
-//       onClose();
-//     }
-//   };
 
-//   return (
-//     <ModalBackdrop onClick={handleBackdropClick}>
-//       <ModalImg src={src} alt="" />
-//     </ModalBackdrop>
-//   );
-// };
+
+
+  // return (
+  //   <ModalBackdrop onClick={handleBackdropClick}>
+  //     <ModalImg src={src} alt="" />
+  //   </ModalBackdrop>
+  // );
