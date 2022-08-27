@@ -95,7 +95,7 @@ export const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLogged = true;
     },
-    [logoutUser.fulfilled](state, action) {
+    [logoutUser.fulfilled](state) {
       state.user = {
         name: '',
         email: null,
@@ -105,6 +105,7 @@ export const authSlice = createSlice({
     },
     [getUserData.pending](state) {
       state.isRefreshing = true;
+      state.isLogged = false;
     },
     [getUserData.fulfilled](state, action) {
       state.user = { ...action.payload };
@@ -113,6 +114,7 @@ export const authSlice = createSlice({
     },
     [getUserData.rejected](state) {
       state.isRefreshing = false;
+      state.isLogged = false;
     },
   },
 })
