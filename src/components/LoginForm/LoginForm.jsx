@@ -1,13 +1,24 @@
 import { Formik } from "formik";
 import { LoginFormm, LoginInput } from "./LoginForm.styled";
 import { PrimaryButton } from "components/common/PrimaryButton.styled";
+import { loginUser } from "redux/authSlice";
+import { useRedux } from "hooks/useRedux";
 
-export const LoginForm = ({ onSubmit }) => {
-  
+export const LoginForm = () => {
+  const [_, dispatch] = useRedux();
+
+  const submitHandler = (values) => {
+    const user = {
+      email: values.email,
+      password: values.password,
+    };
+    dispatch(loginUser(user));
+  };
+
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
-      onSubmit={onSubmit}
+      onSubmit={submitHandler}
     >
       {props => (
         <LoginFormm>

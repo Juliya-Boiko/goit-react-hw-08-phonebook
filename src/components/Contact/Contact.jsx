@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from "react";
 import { useRedux } from "hooks/useRedux";
 import { deleteContactAsync } from "redux/contactsSlice";
@@ -33,3 +34,7 @@ export const Contact = ({ item }) => {
     </>
   );
 };
+
+Contact.propTypes = {
+  item: PropTypes.objectOf(PropTypes.string).isRequired,
+}

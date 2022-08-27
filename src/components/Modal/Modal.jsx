@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 import { useEffect } from "react";
 import { EditContactForm } from "components/EditContactForm/EditContactForm";
 import { ModalBackdrop, ModalContainer, CloseModalButton, CloseModalIcon } from "./Modal.styled";
@@ -37,13 +37,7 @@ export const Modal = ({ item, onClose }) => {
   );
 };
 
-
-
-
-
-
-  // return (
-  //   <ModalBackdrop onClick={handleBackdropClick}>
-  //     <ModalImg src={src} alt="" />
-  //   </ModalBackdrop>
-  // );
+EditContactForm.propTypes = {
+  item: PropTypes.objectOf(PropTypes.string).isRequired,
+  onClose: PropTypes.func.isRequired,
+}

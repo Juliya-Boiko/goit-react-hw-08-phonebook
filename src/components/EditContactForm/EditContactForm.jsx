@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Notify } from "notiflix";
 import { Formik, ErrorMessage } from "formik";
 import { useRedux } from "hooks/useRedux";
@@ -69,3 +70,8 @@ export const EditContactForm = ({ item, onClose }) => {
     </Formik>
   );
 };
+
+EditContactForm.propTypes = {
+  item: PropTypes.objectOf(PropTypes.string).isRequired,
+  onClose: PropTypes.func.isRequired,
+}
