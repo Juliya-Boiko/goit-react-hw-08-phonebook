@@ -1,9 +1,12 @@
 import { Notify } from "notiflix";
-import { Formik } from "formik";
-import { AddForm, AddInput } from "./AddContactForm.styled";
-import { PrimaryButton } from "components/common/PrimaryButton.styled";
+import { Formik, ErrorMessage } from "formik";
 import { getItems, addNewContactAsync } from "redux/contactsSlice";
 import { useRedux } from "hooks/useRedux";
+import { formShema } from "components/common/formShema";
+import { AddForm } from "./AddContactForm.styled";
+import { ErrorText } from "components/common/ErrorText.styled";
+import { Input } from "components/common/Input.styled.";
+import { PrimaryButton } from "components/common/PrimaryButton.styled";
 
 export const AddContactForm = () => { 
   const [useSelector, dispatch] = useRedux();
@@ -43,19 +46,24 @@ export const AddContactForm = () => {
     <Formik
       initialValues={{ name: '', number: '' }}
       onSubmit={submitHandler}
+      validationSchema={formShema}
     >
       {props => (
         <AddForm>
-          <AddInput
+          <Input
             type="text"
             name="name"
+            placeholder="name"
             onChange={props.handleChange}
             value={props.values.name} />
-          <AddInput
-            type="text"
+          <ErrorMessage name="name" render={msg => <ErrorText>{msg}</ErrorText>} />
+          <Input
+            type="tel"
             name="number"
+            placeholder="number"
             onChange={props.handleChange}
             value={props.values.number} />
+          <ErrorMessage name="number" render={msg => <ErrorText>{msg}</ErrorText>} />
           <PrimaryButton type="submit">ADD NEW CONTACT</PrimaryButton>
         </AddForm>
       )}

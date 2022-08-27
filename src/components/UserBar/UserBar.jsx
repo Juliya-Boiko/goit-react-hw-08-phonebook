@@ -21,10 +21,10 @@ export const UserBar = () => {
           </UserBarInfo> 
         : <UserActionsList>
             <UserActionsListItem>
-                <UserActionsLink to="/register">Register</UserActionsLink>
+                <UserActionsLink to="register">Register</UserActionsLink>
             </UserActionsListItem>
             <UserActionsListItem>
-                <UserActionsLink to="/login">Login</UserActionsLink>
+                <UserActionsLink to="login">Login</UserActionsLink>
             </UserActionsListItem>
           </UserActionsList>
       }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginPage = styled.div`
+export const RegisterPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@ export const LoginPage = styled.div`
   padding: 40px 0 0 0;
 `;
 
-export const LoginTitle = styled.h1`
+export const RegisterTitle = styled.h1`
   margin-bottom: 20px;
   font-weight: ${p => p.theme.fontWeight.bold};
   text-align: center;

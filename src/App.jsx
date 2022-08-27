@@ -1,5 +1,4 @@
 import 'modern-normalize';
-import FadeLoader from "react-spinners/ClipLoader";
 import { useEffect, lazy, Suspense } from "react";
 import { useRedux } from 'hooks/useRedux';
 import { getUserData, getRefreshing} from "redux/authSlice";
@@ -8,11 +7,12 @@ import { PublicRoute } from "components/Routes/PublicRoute";
 import { PrivateRoute } from "components/Routes/PrivateRoute";
 import { AppBar } from "components/AppBar/AppBar";
 import { Container } from 'components/common/Container.styled';
+import { Loader } from 'components/Loader/Loader';
 
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 const Home = lazy(() => import('pages/Home/Home'));
 const Login = lazy(() => import('pages/Login/Login'));
-const Register = lazy(() => import('pages/Register'));
+const Register = lazy(() => import('pages/Register/Register'));
 
 export const App = () => {
   const [useSelector, dispatch] = useRedux();
@@ -25,17 +25,17 @@ export const App = () => {
   return (
     <Container>
       {isRefreshing
-        ? <FadeLoader color="red" size={150} />
-        : <Suspense fallback={<FadeLoader color="red" size={150} />}>
+        ? <Loader />
+        : <Suspense fallback={<Loader />}>
             <Routes>
               <Route path="/" element={<AppBar />}>
                 <Route index path="/"
                   element={<PublicRoute><Home /></PublicRoute>} />
-                <Route path="/login"
+                <Route path="login"
                   element={<PublicRoute restricted><Login /></PublicRoute>} />
-                <Route path="/register"
+                <Route path="register"
                   element={<PublicRoute restricted><Register /></PublicRoute>} />
-                <Route path='/contacts'
+                <Route path='contacts'
                   element={<PrivateRoute><Contacts /></PrivateRoute>} />
                 <Route path="*" element={<Home />} />
               </Route>

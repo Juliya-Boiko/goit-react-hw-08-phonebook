@@ -1,7 +1,7 @@
 
 import { useEffect } from "react";
 import { EditContactForm } from "components/EditContactForm/EditContactForm";
-import { ModalBackdrop, CloseModalButton, CloseModalIcon } from "./Modal.styled";
+import { ModalBackdrop, ModalContainer, CloseModalButton, CloseModalIcon } from "./Modal.styled";
 
 export const Modal = ({ item, onClose }) => {
 
@@ -27,10 +27,12 @@ export const Modal = ({ item, onClose }) => {
 
   return (
     <ModalBackdrop onClick={handleBackdropClick}>
-      <CloseModalButton type="button" onClick={onClose}>
-        <CloseModalIcon size="30px" />
-      </CloseModalButton>
-      <EditContactForm item={item} onClose={onClose} />
+      <ModalContainer>
+        <CloseModalButton type="button" onClick={onClose}>
+          <CloseModalIcon size="30px" />
+        </CloseModalButton>
+        <EditContactForm item={item} onClose={onClose} />
+      </ModalContainer>
     </ModalBackdrop>
   );
 };

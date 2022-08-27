@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { registerUser } from "redux/authSlice";
 import { RegisterForm } from "components/RegisterForm/RegisterForm";
+import { RegisterPage, RegisterTitle } from "./Register.styled";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -15,10 +16,10 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>REGISTER PAGE</h2>
+    <RegisterPage>
+      <RegisterTitle>For creating youre own contacts list please register</RegisterTitle>
       <RegisterForm onSubmit={submitHandler} />
-    </div>
+    </RegisterPage>
   );
 };
 

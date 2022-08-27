@@ -1,4 +1,6 @@
-import { Form, Formik } from "formik";
+import { Formik } from "formik";
+import { RegisterFormm, RegisterInput } from "./RegisterForm.styled";
+import { PrimaryButton } from "components/common/PrimaryButton.styled";
 
 export const RegisterForm = ({ onSubmit }) => {
   
@@ -8,32 +10,27 @@ export const RegisterForm = ({ onSubmit }) => {
       onSubmit={onSubmit}
     >
       {props => (
-        <Form>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
+        <RegisterFormm>
+          <RegisterInput
             type="text"
             name="name"
             placeholder="name"
             onChange={props.handleChange}
             value={props.values.name} />
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
+          <RegisterInput
             type="text"
             name="email"
             placeholder="email"
             onChange={props.handleChange}
             value={props.values.email} />
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
+          <RegisterInput
             type="text"
             name="password"
+            placeholder="password"
             onChange={props.handleChange}
             value={props.values.password} />
-          <button type="submit">REGISTER</button>
-        </Form>
+          <PrimaryButton type="submit">REGISTER</PrimaryButton>
+        </RegisterFormm>
       )}
     </Formik>
   );

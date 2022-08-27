@@ -1,41 +1,68 @@
-import { Formik } from "formik";
+import { Notify } from "notiflix";
+import { Formik, ErrorMessage } from "formik";
 import { useRedux } from "hooks/useRedux";
-import { editContactAsync } from "redux/contactsSlice";
-import { Navigate } from "react-router";
-import { EditForm, EditInput } from "./EditContactForm.styled";
+import { editContactAsync, getItems } from "redux/contactsSlice";
+import { formShema } from "components/common/formShema";
+import { EditForm } from "./EditContactForm.styled";
+import { Input } from "components/common/Input.styled.";
+import { ErrorText } from "components/common/ErrorText.styled";
 import { SecondaryButton } from "components/common/SecondaryButton";
 
 export const EditContactForm = ({ item, onClose }) => {
-  const [_, dispatch] = useRedux();
+  const [useSelector, dispatch] = useRedux();
+  const items = useSelector(getItems);
+
+  const validateContact = data => {
+    const normalizedValue = data.name.toLowerCase();
+    const result = items.find(item =>
+      item.name.toLowerCase() === normalizedValue
+    );
+    return result;
+  };
+
+  const normalizedContact = str => {
+    const normalizedName = str
+      .split(' ')
+      .map(item => item[0].toUpperCase() + item.slice(1))
+      .join(' ');
+    return normalizedName;
+  };
 
   const submitHandler = (values) => {
     const contact = {
       id: item.id,
-      name: values.name,
+      name: normalizedContact(values.name),
       number: values.number,
     };
-    dispatch(editContactAsync(contact));
-    onClose();
-    <Navigate to="/contacts" />
+    if (validateContact(contact)) {
+      Notify.failure(`${contact.name} already exist`);
+      return;
+    } else {
+      dispatch(editContactAsync(contact));
+      onClose();
+    }
   };
   
   return (
     <Formik
       initialValues={{ name: item.name, number: item.number }}
       onSubmit={submitHandler}
+      validationSchema={formShema}
     >
       {props => (
         <EditForm>
-          <EditInput
+          <Input
             type="text"
             name="name"
             onChange={props.handleChange}
             value={props.values.name} />
-          <EditInput
+          <ErrorMessage name="name" render={msg => <ErrorText>{msg}</ErrorText>} />
+          <Input
             type="text"
             name="number"
             onChange={props.handleChange}
             value={props.values.number} />
+          <ErrorMessage name="number" render={msg => <ErrorText>{msg}</ErrorText>} />
           <SecondaryButton type="submit">EDIT CONTACT</SecondaryButton>
         </EditForm>
       )}

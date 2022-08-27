@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import { LoginFormm, LoginInput } from "./LoginForm.styled";
+import { PrimaryButton } from "components/common/PrimaryButton.styled";
 
 export const LoginForm = ({ onSubmit }) => {
   
@@ -19,9 +20,10 @@ export const LoginForm = ({ onSubmit }) => {
           <LoginInput
             type="text"
             name="password"
+            placeholder="password"
             onChange={props.handleChange}
             value={props.values.password} />
-          <button type="submit">LOG IN</button>
+          <PrimaryButton type="submit">LOG IN</PrimaryButton>
         </LoginFormm>
       )}
     </Formik>

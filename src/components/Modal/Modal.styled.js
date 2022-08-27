@@ -11,12 +11,23 @@ export const ModalBackdrop = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1200;
 `;
 
+export const ModalContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const CloseModalButton = styled.button`
-padding: 5px;
+position: absolute;
+top: -40px;
+right: -40px;
+  padding: 5px;
   border: none;
   outline: none;
   background-color: transparent;
