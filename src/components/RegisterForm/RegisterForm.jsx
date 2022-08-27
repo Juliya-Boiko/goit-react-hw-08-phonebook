@@ -3,6 +3,7 @@ import { RegisterFormm, RegisterInput } from "./RegisterForm.styled";
 import { PrimaryButton } from "components/common/PrimaryButton.styled";
 import { useRedux } from "hooks/useRedux";
 import { registerUser } from "redux/authSlice";
+import { Navigate } from "react-router";
 
 export const RegisterForm = () => {
   const dispatch = useRedux();
@@ -14,6 +15,7 @@ export const RegisterForm = () => {
       password: values.password,
     };
     dispatch(registerUser(user));
+    <Navigate to="contacts" replace={true}/>
   };
 
   return (

@@ -2,6 +2,7 @@ import { useRedux } from "hooks/useRedux";
 import { logoutUser, getUserName, getLogging } from "redux/authSlice";
 import { UserBarInfo, UserName, UserActionsList, UserActionsListItem, UserActionsLink } from "./UserBar.styled";
 import { PrimaryButton } from "components/common/PrimaryButton.styled";
+import { Navigate } from "react-router";
 
 export const UserBar = () => {
   const [useSelector, dispatch] = useRedux();
@@ -10,6 +11,7 @@ export const UserBar = () => {
 
   const logoutHandler = () => {
     dispatch(logoutUser());
+    <Navigate to="/" replace={true} />
   }
   
   return (

@@ -29,4 +29,17 @@ export const UserActionsListItem = styled.li`
 
 export const UserActionsLink = styled(NavLink)`
   color: ${p => p.theme.colors.white};
+  position: relative;
+
+  &.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${p => p.theme.colors.white};;
+    border-radius: 2px;
+  }
 `;
