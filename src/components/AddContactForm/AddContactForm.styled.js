@@ -4,7 +4,7 @@ import { Form, Field } from "formik";
 export const AddForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  width: 200px;
+  max-width: 200px;
 
   @media screen and (max-width: 640px) {
     margin: 0 0 30px 0;
@@ -15,7 +15,7 @@ export const AddInput = styled(Field)`
   display: block;
   width: 100%;
   margin: 0 0 10px 0;
-  padding: 2px 4px;
+  padding: 8px;
   background-color: #F3F3F3;
   outline: none;
   border: 2px solid #D75C78;

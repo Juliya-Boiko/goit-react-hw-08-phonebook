@@ -11,7 +11,7 @@ export const Contact = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   const openModal = () => {
-    setIsModalOpen(true);
+    setIsModalOpen(true); 
   };
 
   const closeModal = () => {
