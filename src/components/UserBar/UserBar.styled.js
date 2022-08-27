@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const UserBarInfo = styled.div`
   display: flex;
@@ -13,4 +14,19 @@ export const UserName = styled.p`
   @media screen and (max-width: 425px) {
     font-size: 9px;
   }
+`;
+
+export const UserActionsList = styled.ul`
+  display: flex;
+  align-items: center;
+`;
+
+export const UserActionsListItem = styled.li`
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+`;
+
+export const UserActionsLink = styled(NavLink)`
+  color: ${p => p.theme.colors.white};
 `;

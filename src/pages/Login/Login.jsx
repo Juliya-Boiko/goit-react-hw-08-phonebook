@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { loginUser } from "redux/authSlice";
 import { LoginForm } from "components/LoginForm/LoginForm";
+import { LoginPage, LoginTitle } from "./Login.styled";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -14,10 +15,10 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>LOG IN</h2>
+    <LoginPage>
+      <LoginTitle>If you already have account, please log in</LoginTitle>
       <LoginForm onSubmit={submitHandler} />
-    </div>
+    </LoginPage>
   );
 };
 

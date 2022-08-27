@@ -1,4 +1,5 @@
-import { Form, Formik } from "formik";
+import { Formik } from "formik";
+import { LoginFormm, LoginInput } from "./LoginForm.styled";
 
 export const LoginForm = ({ onSubmit }) => {
   
@@ -8,24 +9,20 @@ export const LoginForm = ({ onSubmit }) => {
       onSubmit={onSubmit}
     >
       {props => (
-        <Form>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
+        <LoginFormm>
+          <LoginInput
             type="text"
             name="email"
             placeholder="email"
             onChange={props.handleChange}
             value={props.values.email} />
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
+          <LoginInput
             type="text"
             name="password"
             onChange={props.handleChange}
             value={props.values.password} />
           <button type="submit">LOG IN</button>
-        </Form>
+        </LoginFormm>
       )}
     </Formik>
   );
