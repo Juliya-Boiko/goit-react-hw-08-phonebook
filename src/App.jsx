@@ -1,7 +1,5 @@
 import 'modern-normalize';
-import { useEffect, lazy, Suspense } from "react";
-import { useRedux } from 'hooks/useRedux';
-import { getUserData} from "redux/authSlice";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { PublicRoute } from "components/Routes/PublicRoute";
 import { PrivateRoute } from "components/Routes/PrivateRoute";
@@ -15,18 +13,9 @@ const Login = lazy(() => import('pages/Login/Login'));
 const Register = lazy(() => import('pages/Register/Register'));
 
 export const App = () => {
-  const [dispatch] = useRedux();
-  // const isRefreshing = useSelector(getRefreshing);
-
-  useEffect(() => {
-    dispatch(getUserData());
-  }, [dispatch]);
 
   return (
     <Container>
-      {/* {isRefreshing
-        ? <Loader />
-        : */}
         <Suspense fallback={<Loader />}>
             <Routes>
               <Route path="/" element={<AppBar />}>
@@ -41,7 +30,7 @@ export const App = () => {
                 <Route path="*" element={<Home />} />
               </Route>
             </Routes>
-          </Suspense>
+        </Suspense>
     </Container>
   );
 };

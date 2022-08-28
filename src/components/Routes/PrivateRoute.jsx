@@ -1,13 +1,11 @@
-import { useRedux } from "hooks/useRedux";
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
-import { getLogging } from "redux/authSlice";
 
 export const PrivateRoute = ({ children }) => {
-  const [useSelector] = useRedux();
-  const isLoggedIn = useSelector(getLogging);
+  const isLogged = useSelector(state => state.auth.isLogged);
 
   return (
-    !isLoggedIn
+    !isLogged
       ? <Navigate to='/' />
       : children
   );

@@ -1,10 +1,8 @@
-import { useRedux } from "hooks/useRedux";
-import { getLogging } from "redux/authSlice";
+import { useSelector } from "react-redux";
 import { NavBarList, NavBarItem, NavBarLink, NavBarIcon } from "./NavBar.styled";
 
 export const NavBar = () => {
-  const [useSelector] = useRedux();
-  const isLogged = useSelector(getLogging);
+  const isLogged = useSelector(state => state.auth.isLogged);
 
   return (
     <NavBarList>

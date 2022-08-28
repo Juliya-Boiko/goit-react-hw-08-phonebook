@@ -1,13 +1,13 @@
-import { useRedux } from "hooks/useRedux";
-import { logoutUser, getUserName, getLogging } from "redux/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "redux/authSlice";
 import { UserBarInfo, UserName, UserActionsList, UserActionsListItem, UserActionsLink } from "./UserBar.styled";
 import { PrimaryButton } from "components/common/PrimaryButton.styled";
 import { Navigate } from "react-router";
 
 export const UserBar = () => {
-  const [dispatch, useSelector] = useRedux();
-  const name = useSelector(getUserName);
-  const isLogged = useSelector(getLogging);
+  const name = useSelector(state => state.auth.user.name);
+  const isLogged = useSelector(state => state.auth.isLogged);
+  const dispatch = useDispatch();
 
   const logoutHandler = () => {
     dispatch(logoutUser());
