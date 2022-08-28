@@ -9,7 +9,7 @@ import { Input } from "components/common/Input.styled.";
 import { PrimaryButton } from "components/common/PrimaryButton.styled";
 
 export const AddContactForm = () => { 
-  const [useSelector, dispatch] = useRedux();
+  const [dispatch, useSelector] = useRedux();
   const items = useSelector(getItems);
 
   const validateContact = data => {

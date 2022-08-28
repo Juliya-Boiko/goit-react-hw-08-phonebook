@@ -5,7 +5,7 @@ import { Contact } from "components/Contact/Contact";
 import { ContactListItem, EmptyList } from "./ContactsList.styled";
 
 export const ContactsList = () => {
-  const [useSelector, dispatch] = useRedux();
+  const [dispatch, useSelector] = useRedux();
   const items = useSelector(getItems);
 
   useEffect(() => {

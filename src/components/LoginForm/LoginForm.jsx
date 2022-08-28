@@ -6,7 +6,7 @@ import { useRedux } from "hooks/useRedux";
 import { Navigate } from "react-router";
 
 export const LoginForm = () => {
-  const [_, dispatch] = useRedux();
+  const [dispatch] = useRedux();
 
   const submitHandler = (values) => {
     const user = {

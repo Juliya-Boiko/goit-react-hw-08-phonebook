@@ -5,7 +5,7 @@ import { PrimaryButton } from "components/common/PrimaryButton.styled";
 import { Navigate } from "react-router";
 
 export const UserBar = () => {
-  const [useSelector, dispatch] = useRedux();
+  const [dispatch, useSelector] = useRedux();
   const name = useSelector(getUserName);
   const isLogged = useSelector(getLogging);
 

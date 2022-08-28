@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-import { Form, Field } from "formik";
+import { Form } from "formik";
 
 export const EditForm = styled(Form)`
   display: flex;

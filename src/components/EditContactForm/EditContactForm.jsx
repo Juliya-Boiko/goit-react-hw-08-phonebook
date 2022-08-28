@@ -10,7 +10,7 @@ import { ErrorText } from "components/common/ErrorText.styled";
 import { SecondaryButton } from "components/common/SecondaryButton";
 
 export const EditContactForm = ({ item, onClose }) => {
-  const [useSelector, dispatch] = useRedux();
+  const [dispatch, useSelector] = useRedux();
   const items = useSelector(getItems);
 
   const validateContact = data => {

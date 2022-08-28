@@ -6,7 +6,7 @@ import { registerUser } from "redux/authSlice";
 import { Navigate } from "react-router";
 
 export const RegisterForm = () => {
-  const dispatch = useRedux();
+  const [dispatch] = useRedux();
 
   const submitHandler = (values) => {
     const user = {

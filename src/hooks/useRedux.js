@@ -4,5 +4,5 @@ export const useRedux = () => {
   const useSelector = createSelectorHook();
   const dispatch = useDispatch()
 
-  return [useSelector, dispatch];
+  return [dispatch, useSelector];
 };

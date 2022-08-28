@@ -8,7 +8,7 @@ import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 
 export const Contact = ({ item }) => { 
-  const [_, dispatch] = useRedux();
+  const [dispatch] = useRedux();
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   const openModal = () => {
