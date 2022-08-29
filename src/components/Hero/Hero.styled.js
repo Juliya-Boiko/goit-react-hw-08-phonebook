@@ -1,13 +1,6 @@
 import styled from "styled-components";
 
-export const HomePage = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const HomeTitle = styled.h1`
+export const HeroTitle = styled.h1`
   margin-bottom: 20px;
   font-weight: ${p => p.theme.fontWeight.bold};
   text-align: center;
@@ -23,7 +16,7 @@ export const HomeTitle = styled.h1`
   }
 `;
 
-export const HomeText = styled.p`
+export const HeroText = styled.p`
 display: block;
   text-align: center;
   color: ${p => p.theme.colors.white};
@@ -31,6 +24,7 @@ display: block;
 
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     max-width: 400px;
+  }
 
   @media screen and (min-width: 1200px) {
     max-width: 600px;

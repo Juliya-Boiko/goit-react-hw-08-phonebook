@@ -1,13 +1,13 @@
 import { RegisterForm } from "components/RegisterForm/RegisterForm";
-import { RegisterPage, RegisterTitle } from "./Register.styled";
+import { MainTitle } from "components/common/MainTitle.styled";
+import { PageContainer } from "components/common/PageContainer.styled";
 
 const Register = () => {
-
   return (
-    <RegisterPage>
-      <RegisterTitle>For creating youre own contacts list please register</RegisterTitle>
+    <PageContainer>
+      <MainTitle>For creating youre own contacts list please register</MainTitle>
       <RegisterForm />
-    </RegisterPage>
+    </PageContainer>
   );
 };
 

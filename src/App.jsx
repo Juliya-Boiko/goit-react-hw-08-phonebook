@@ -4,18 +4,18 @@ import { Routes, Route } from "react-router-dom";
 import { PublicRoute } from "hocs/PublicRoute";
 import { PrivateRoute } from "hocs/PrivateRoute";
 import { AppBar } from "layouts/AppBar/AppBar";
-import { Container } from 'components/common/Container.styled';
+import { BodyContainer } from 'components/common/BodyContainer.styled';
 import { Loader } from 'components/common/Loader/Loader';
 
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
-const Home = lazy(() => import('pages/Home/Home'));
+const Home = lazy(() => import('Home'));
 const Login = lazy(() => import('pages/Login/Login'));
 const Register = lazy(() => import('pages/Register/Register'));
 
 export const App = () => {
 
   return (
-    <Container>
+    <BodyContainer>
         <Suspense fallback={<Loader />}>
             <Routes>
               <Route path="/" element={<AppBar />}>
@@ -31,6 +31,6 @@ export const App = () => {
               </Route>
             </Routes>
         </Suspense>
-    </Container>
+    </BodyContainer>
   );
 };

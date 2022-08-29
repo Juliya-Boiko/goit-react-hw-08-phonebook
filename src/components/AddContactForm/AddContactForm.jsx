@@ -43,30 +43,32 @@ export const AddContactForm = () => {
   };
   
   return (
-    <Formik
-      initialValues={{ name: '', number: '' }}
-      onSubmit={submitHandler}
-      validationSchema={contactSchema}
-    >
-      {props => (
-        <AddForm>
-          <Input
-            type="text"
-            name="name"
-            placeholder="name"
-            onChange={props.handleChange}
-            value={props.values.name} />
-          <ErrorMessage name="name" render={msg => <ErrorText>{msg}</ErrorText>} />
-          <Input
-            type="tel"
-            name="number"
-            placeholder="number"
-            onChange={props.handleChange}
-            value={props.values.number} />
-          <ErrorMessage name="number" render={msg => <ErrorText>{msg}</ErrorText>} />
-          <PrimaryButton type="submit">ADD NEW CONTACT</PrimaryButton>
-        </AddForm>
-      )}
-    </Formik>
+    <>
+      <Formik
+        initialValues={{ name: '', number: '' }}
+        onSubmit={submitHandler}
+        validationSchema={contactSchema}
+      >
+        {props => (
+          <AddForm>
+            <Input
+              type="text"
+              name="name"
+              placeholder="name"
+              onChange={props.handleChange}
+              value={props.values.name} />
+            <ErrorMessage name="name" render={msg => <ErrorText>{msg}</ErrorText>} />
+            <Input
+              type="tel"
+              name="number"
+              placeholder="number"
+              onChange={props.handleChange}
+              value={props.values.number} />
+            <ErrorMessage name="number" render={msg => <ErrorText>{msg}</ErrorText>} />
+            <PrimaryButton type="submit">ADD NEW CONTACT</PrimaryButton>
+          </AddForm>
+        )}
+      </Formik>
+    </>
   );
 };

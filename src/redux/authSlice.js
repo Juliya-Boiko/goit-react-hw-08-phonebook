@@ -28,6 +28,7 @@ export const registerUser = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/signup', values);
       token.set(data.token);
+      Notify.success('Registration successful!');
       return data;
     } catch (error) {
       Notify.failure(error.message);
@@ -41,6 +42,7 @@ export const loginUser = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/login', values);
       token.set(data.token);
+      Notify.success('Login successful!');
       return data;
     } catch (error) {
       Notify.failure(`${error}. This user dont exist`);
@@ -54,6 +56,7 @@ export const logoutUser = createAsyncThunk(
     try {
       await axios.post('/users/logout');
       token.unset();
+      Notify.success('Logout successful!');
     } catch (error) {
       Notify.failure(error.message);
     }
