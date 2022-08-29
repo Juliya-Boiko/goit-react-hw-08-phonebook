@@ -1,13 +1,16 @@
 import { AddContactForm } from "components/AddContactForm/AddContactForm";
 import { ContactsList } from "components/ContactsList/ContactsList";
 import { ContactsPage } from "./Contacts.styled";
+import { Filter } from "components/Filter/Filter";
 
 const Contacts = () => {
-
   return (
     <ContactsPage>
       <AddContactForm />
-      <ContactsList />
+      <div>
+        <Filter />
+        <ContactsList />
+      </div>
     </ContactsPage>
   );
 };

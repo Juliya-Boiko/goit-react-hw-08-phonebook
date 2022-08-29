@@ -5,11 +5,13 @@ import { fetchAllContacts, fetchAddContact, fetchDeleteContact, fetchEditContact
 
 // ================== INITIAL STATE
 const initialState = {
-    items: [],
+  items: [],
+  filter: '',
 };
 
 // ================== SELECTORS
 export const getItems = state => state.contacts.items;
+export const getFilterValue = state => state.contacts.filter;
 
 // ================== ASYNC OPERATIONS
 export const getAllContactsAsync = createAsyncThunk(
@@ -83,5 +85,12 @@ export const contactsSlice = createSlice({
     [editContactAsync.fulfilled](state, action) {
       state.items = [...action.payload]
     }
+  },
+  reducers: {
+    filterItems: (state, action) => {
+      return { ...state, filter: action.payload };
+    },
   }
 });
+
+export const { filterItems } = contactsSlice.actions;
