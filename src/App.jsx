@@ -1,8 +1,8 @@
 import 'modern-normalize';
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { PublicRoute } from "components/Routes/PublicRoute";
-import { PrivateRoute } from "components/Routes/PrivateRoute";
+import { PublicRoute } from "hocs/PublicRoute";
+import { PrivateRoute } from "hocs/PrivateRoute";
 import { AppBar } from "components/AppBar/AppBar";
 import { Container } from 'components/common/Container.styled';
 import { Loader } from 'components/Loader/Loader';
