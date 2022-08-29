@@ -5,7 +5,7 @@ import { PublicRoute } from "hocs/PublicRoute";
 import { PrivateRoute } from "hocs/PrivateRoute";
 import { AppBar } from "components/AppBar/AppBar";
 import { Container } from 'components/common/Container.styled';
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from 'components/common/Loader/Loader';
 
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 const Home = lazy(() => import('pages/Home/Home'));

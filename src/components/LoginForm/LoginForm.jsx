@@ -1,9 +1,11 @@
-import { Formik } from "formik";
-import { LoginFormm, LoginInput } from "./LoginForm.styled";
-import { PrimaryButton } from "components/common/PrimaryButton.styled";
+import { Formik, ErrorMessage } from "formik";
 import { loginUser } from "redux/authSlice";
 import { useRedux } from "hooks/useRedux";
 import { Navigate } from "react-router";
+import { logSchema } from "validationSchem/formsSchema";
+import { LoginFormm, LoginInput } from "./LoginForm.styled";
+import { PrimaryButton } from "components/common/PrimaryButton.styled";
+import { ErrorText } from "components/common/ErrorText.styled";
 
 export const LoginForm = () => {
   const [dispatch] = useRedux();
@@ -21,6 +23,7 @@ export const LoginForm = () => {
     <Formik
       initialValues={{ email: '', password: '' }}
       onSubmit={submitHandler}
+      validationSchema={logSchema}
     >
       {props => (
         <LoginFormm>
@@ -30,12 +33,14 @@ export const LoginForm = () => {
             placeholder="email"
             onChange={props.handleChange}
             value={props.values.email} />
+          <ErrorMessage name="email" render={msg => <ErrorText>{msg}</ErrorText>} />
           <LoginInput
             type="password"
             name="password"
             placeholder="password"
             onChange={props.handleChange}
             value={props.values.password} />
+          <ErrorMessage name="password" render={msg => <ErrorText>{msg}</ErrorText>} />
           <PrimaryButton type="submit">LOG IN</PrimaryButton>
         </LoginFormm>
       )}
