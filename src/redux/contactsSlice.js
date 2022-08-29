@@ -19,7 +19,7 @@ export const getAllContactsAsync = createAsyncThunk(
       const data = await fetchAllContacts();
       return data;
     } catch (error) {
-      Notify.failure(error);
+      Notify.failure(error.message);
     }
   }
 );
@@ -33,7 +33,7 @@ export const addNewContactAsync = createAsyncThunk(
       const data = await fetchAllContacts();
       return data;
     } catch (error) {
-      Notify.failure(error);
+      Notify.failure(error.message);
     }
   }
 );
@@ -47,7 +47,7 @@ export const deleteContactAsync = createAsyncThunk(
       const data = await fetchAllContacts();
       return data;
     } catch (error) {
-      Notify.failure(error);
+      Notify.failure(error.message);
     }
   }
 );
@@ -61,7 +61,7 @@ export const editContactAsync = createAsyncThunk(
       const data = fetchAllContacts();
       return data;
     } catch (error) {
-      Notify.failure(error);
+      Notify.failure(error.message);
     }
   }
 );

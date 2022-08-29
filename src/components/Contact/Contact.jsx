@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from "react";
 import { useRedux } from "hooks/useRedux";
 import { deleteContactAsync } from "redux/contactsSlice";
-import { Modal } from "components/Modal/Modal";
+import { Modal } from "components/common/Modal/Modal";
 import { ContactButton } from "./Contact.styled";
 import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";

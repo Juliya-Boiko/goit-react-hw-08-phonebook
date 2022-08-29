@@ -30,7 +30,7 @@ export const registerUser = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      Notify.failure(error);
+      Notify.failure(error.message);
     }
   }
 );
@@ -43,7 +43,7 @@ export const loginUser = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      Notify.failure(error);
+      Notify.failure(error.message);
     }
   }
 );
@@ -55,7 +55,7 @@ export const logoutUser = createAsyncThunk(
       await axios.post('/users/logout');
       token.unset();
     } catch (error) {
-      Notify.failure(error);
+      Notify.failure(error.message);
     }
   }
 );
@@ -74,7 +74,7 @@ export const getUserData = createAsyncThunk(
         const { data } = await axios.get('/users/current'); 
         return data;
       } catch (error) {
-        Notify.failure(error);
+        Notify.failure(error.message);
       }
     }
   }
