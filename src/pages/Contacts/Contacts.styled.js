@@ -6,7 +6,7 @@ export const ContactsPage = styled.div`
   justify-content: space-around;
   padding: 40px 0 0 0;
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 900px) {
     flex-direction: column;
   }
 `;

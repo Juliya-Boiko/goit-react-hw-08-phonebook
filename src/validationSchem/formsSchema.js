@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 export const contactSchema = yup.object().shape({
   name: yup.string().min(2).required(),
-  number: yup.string().length(13).required(),
+  number: yup.string().length(12).required(),
 });
 
 export const registerSchema = yup.object().shape({
