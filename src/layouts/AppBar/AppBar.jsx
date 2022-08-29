@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { NavBar } from "components/NavBar/NavBar";
-import { UserBar } from "components/UserBar/UserBar";
+import { NavBar } from "layouts/NavBar/NavBar";
+import { UserBar } from "layouts/UserBar/UserBar";
 import { AppBarHeader } from "./AppBar.styled";
 
 export const AppBar = () => {

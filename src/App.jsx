@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { PublicRoute } from "hocs/PublicRoute";
 import { PrivateRoute } from "hocs/PrivateRoute";
-import { AppBar } from "components/AppBar/AppBar";
+import { AppBar } from "layouts/AppBar/AppBar";
 import { Container } from 'components/common/Container.styled';
 import { Loader } from 'components/common/Loader/Loader';
 

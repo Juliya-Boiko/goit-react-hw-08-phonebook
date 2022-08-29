@@ -43,7 +43,7 @@ export const loginUser = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      Notify.failure(error.message);
+      Notify.failure(`${error}. This user dont exist`);
     }
   }
 );
