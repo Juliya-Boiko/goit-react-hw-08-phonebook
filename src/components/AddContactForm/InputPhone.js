@@ -3,19 +3,13 @@ import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css';
 
 export const InputPhone = ({ ...props }) => {
-  const [field, _, helpers] = useField(props.name);
+  const [field, meta, helpers] = useField(props.name);
 
   return (
+    <>
       <PhoneInput
         {...props}
         {...field}
-        containerStyle={{
-          color: 'black',
-          marginBottom: "10px",}}
-        inputStyle={{
-          outline: "2px solid #D75C78",
-          borderRadius: "5px"
-        }}
         value={field.value}
         id="number"
         defaultCountry="ua"
@@ -24,6 +18,15 @@ export const InputPhone = ({ ...props }) => {
         onChange={(value) => {
           helpers.setValue(value);
         }}
+        containerStyle={{
+          color: 'black',
+          marginBottom: "15px",}}
+        inputStyle={{
+          outline: "2px solid #D75C78",
+          borderRadius: "5px"
+        }}
       />
+      {meta.error && meta.touched && <div>{meta.error}</div>}
+    </>
   );
 };
