@@ -12,14 +12,12 @@ const initialState = {
   },
   token: null,
   isLogged: false,
-  isRefreshing: false,
 };
 
 // ================== SELECTORS
 export const getUserName = state => state.auth.user.name;
 export const getLogging = state => state.auth.isLogged;
 export const getToken = state => state.auth.token;
-export const getRefreshing = state => state.auth.isRefreshing;
 
 // ================== ASYNC OPERATIONS
 export const registerUser = createAsyncThunk(
@@ -63,26 +61,6 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
-export const getUserData = createAsyncThunk(
-  'auth/refresh',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      Notify.failure("Please login!");
-    } else {
-      token.set(persistedToken);
-      try {
-        const { data } = await axios.get('/users/current'); 
-        return data;
-      } catch (error) {
-        Notify.failure(error.message);
-      }
-    }
-  }
-)
-
 // ================== REDUSER
 export const authSlice = createSlice({
   name: 'auth',
@@ -104,19 +82,6 @@ export const authSlice = createSlice({
         email: null,
       };
       state.token = null;
-      state.isLogged = false;
-    },
-    [getUserData.pending](state) {
-      state.isRefreshing = true;
-      state.isLogged = false;
-    },
-    [getUserData.fulfilled](state, action) {
-      state.user = { ...action.payload };
-      state.isLogged = true;
-      state.isRefreshing = false;
-    },
-    [getUserData.rejected](state) {
-      state.isRefreshing = false;
       state.isLogged = false;
     },
   },
