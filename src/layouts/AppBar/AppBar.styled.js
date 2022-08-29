@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const AppBarHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 0 0 0;
 
   @media screen and (min-width: 480px) {
@@ -10,8 +13,4 @@ export const AppBarHeader = styled.header`
   @media screen and (min-width: 768px) {
     padding: 40px 0 0 0;
   }
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;

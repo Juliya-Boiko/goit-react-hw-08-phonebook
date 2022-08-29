@@ -13,7 +13,6 @@ const Login = lazy(() => import('pages/Login/Login'));
 const Register = lazy(() => import('pages/Register/Register'));
 
 export const App = () => {
-
   return (
     <BodyContainer>
         <Suspense fallback={<Loader />}>

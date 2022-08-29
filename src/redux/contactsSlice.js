@@ -93,4 +93,5 @@ export const contactsSlice = createSlice({
   }
 });
 
+// ================== ACTIONS
 export const { filterItems } = contactsSlice.actions;

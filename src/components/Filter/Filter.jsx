@@ -1,8 +1,6 @@
-import { filterItems } from "redux/contactsSlice";
 import { useRedux } from "hooks/useRedux";
-import { getFilterValue } from "redux/contactsSlice";
-import { FilterInput } from "./Filter.styled";
-
+import { filterItems, getFilterValue } from "redux/contactsSlice";
+import { Input } from "components/common/Input.styled.";
 
 export const Filter = () => {
   const [dispatch, useSelector] = useRedux();
@@ -13,7 +11,7 @@ export const Filter = () => {
   }; 
 
   return (
-    <FilterInput
+    <Input
       type="text"
       name="filter"
       placeholder="type name..."

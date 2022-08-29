@@ -12,7 +12,7 @@ export const ModalBackdrop = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1200;
+  z-index: 100;
 `;
 
 export const ModalContainer = styled.div`
@@ -36,7 +36,7 @@ export const CloseModalButton = styled.button`
   transition: all 250ms ease-in-out;
 
   &:hover {
-    color: #D45B78;
+    color: ${p => p.theme.colors.pink};
   }
 `;
 

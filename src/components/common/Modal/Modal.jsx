@@ -4,7 +4,6 @@ import { EditContactForm } from "components/EditContactForm/EditContactForm";
 import { ModalBackdrop, ModalContainer, CloseModalButton, CloseModalIcon } from "./Modal.styled";
 
 export const Modal = ({ item, onClose }) => {
-
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {

@@ -1,6 +1,6 @@
-import { LoginForm } from "components/LoginForm/LoginForm";
-import { MainTitle } from "components/common/MainTitle.styled";
 import { PageContainer } from "components/common/PageContainer.styled";
+import { MainTitle } from "components/common/MainTitle.styled";
+import { LoginForm } from "components/LoginForm/LoginForm";
 
 const Login = () => {
   return (

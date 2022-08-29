@@ -1,11 +1,12 @@
 import { Formik, ErrorMessage } from "formik";
-import { RegisterFormm, RegisterInput } from "./RegisterForm.styled";
+import { AuthForm } from "components/common/AuthForm.styled";
 import { PrimaryButton } from "components/common/PrimaryButton.styled";
 import { useRedux } from "hooks/useRedux";
 import { registerUser } from "redux/authSlice";
 import { Navigate } from "react-router";
 import { registerSchema } from "validationSchem/formsSchema";
 import { ErrorText } from "components/common/ErrorText.styled";
+import { Input } from "components/common/Input.styled.";
 
 export const RegisterForm = () => {
   const [dispatch] = useRedux();
@@ -27,22 +28,22 @@ export const RegisterForm = () => {
       validationSchema={registerSchema}
     >
       {props => (
-        <RegisterFormm>
-          <RegisterInput
+        <AuthForm>
+          <Input
             type="text"
             name="name"
             placeholder="name"
             onChange={props.handleChange}
             value={props.values.name} />
           <ErrorMessage name="name" render={msg => <ErrorText>{msg}</ErrorText>} />
-          <RegisterInput
+          <Input
             type="text"
             name="email"
             placeholder="email"
             onChange={props.handleChange}
             value={props.values.email} />
           <ErrorMessage name="email" render={msg => <ErrorText>{msg}</ErrorText>} />
-          <RegisterInput
+          <Input
             type="password"
             name="password"
             placeholder="password"
@@ -50,7 +51,7 @@ export const RegisterForm = () => {
             value={props.values.password} />
           <ErrorMessage name="password" render={msg => <ErrorText>{msg}</ErrorText>} />
           <PrimaryButton type="submit">REGISTER</PrimaryButton>
-        </RegisterFormm>
+        </AuthForm>
       )}
     </Formik>
   );

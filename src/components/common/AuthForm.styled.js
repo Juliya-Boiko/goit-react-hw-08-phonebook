@@ -1,9 +1,10 @@
-
 import styled from "styled-components";
 import { Form } from "formik";
 
-export const EditForm = styled(Form)`
+export const AuthForm = styled(Form)`
+  max-width: 500px;
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  align-items: center;
+  justify-content: center;
 `;

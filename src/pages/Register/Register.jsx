@@ -1,6 +1,6 @@
-import { RegisterForm } from "components/RegisterForm/RegisterForm";
-import { MainTitle } from "components/common/MainTitle.styled";
 import { PageContainer } from "components/common/PageContainer.styled";
+import { MainTitle } from "components/common/MainTitle.styled";
+import { RegisterForm } from "components/RegisterForm/RegisterForm";
 
 const Register = () => {
   return (

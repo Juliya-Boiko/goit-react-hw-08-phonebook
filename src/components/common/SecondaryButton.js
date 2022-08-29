@@ -9,7 +9,7 @@ export const SecondaryButton = styled.button`
 	background-color: #D45B78;
 	color: ${p => p.theme.colors.white};
 	cursor: pointer;
-  	transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
 
 	@media screen and (max-width: 425px) {
 		padding: 3px 10px;

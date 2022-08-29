@@ -17,7 +17,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroText = styled.p`
-display: block;
+  display: block;
   text-align: center;
   color: ${p => p.theme.colors.white};
   font-size: 14px;
