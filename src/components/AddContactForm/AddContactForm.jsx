@@ -2,7 +2,7 @@ import { Notify } from "notiflix";
 import { Formik, ErrorMessage } from "formik";
 import { getItems, addNewContactAsync } from "redux/contactsSlice";
 import { useRedux } from "hooks/useRedux";
-import { contactSchema } from "validationSchem/formsSchema";
+import { contactSchema } from "Schem/formsSchema";
 import { AddForm } from "./AddContactForm.styled";
 import { ErrorText } from "components/common/ErrorText.styled";
 import { Input } from "components/common/Input.styled.";

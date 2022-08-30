@@ -2,7 +2,7 @@ import { Formik, ErrorMessage } from "formik";
 import { loginUser } from "redux/authSlice";
 import { useRedux } from "hooks/useRedux";
 import { Navigate } from "react-router";
-import { logSchema } from "validationSchem/formsSchema";
+import { logSchema } from "Schem/formsSchema";
 import { AuthForm } from "components/common/AuthForm.styled";
 import { PrimaryButton } from "components/common/PrimaryButton.styled";
 import { ErrorText } from "components/common/ErrorText.styled";
