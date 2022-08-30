@@ -1,8 +1,14 @@
 import * as yup from 'yup';
 
+const nameRegExp = RegExp(
+  /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/
+);
+
+const numberRegExp = RegExp(/[0-9]/);
+
 export const contactSchema = yup.object().shape({
-  name: yup.string().min(2).required(),
-  number: yup.string().length(12).required(),
+  name: yup.string().min(2).matches(nameRegExp).required(),
+  number: yup.string().length(12).matches(numberRegExp).required(),
 });
 
 export const registerSchema = yup.object().shape({

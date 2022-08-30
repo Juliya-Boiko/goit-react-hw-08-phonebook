@@ -63,9 +63,8 @@ export const AddContactForm = () => {
               id="number"
               name="number"
               type="tel"
-              placeholder="number"
+              placeholder="(050) 123 45 67"
             />
-            <ErrorMessage name="number" render={msg => <ErrorText>{msg}</ErrorText>} />
             <PrimaryButton type="submit">ADD NEW CONTACT</PrimaryButton>
           </AddForm>
         )}
