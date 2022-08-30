@@ -4,7 +4,7 @@ import { PrimaryButton } from "components/common/PrimaryButton.styled";
 import { useRedux } from "hooks/useRedux";
 import { registerUser } from "redux/authSlice";
 import { Navigate } from "react-router";
-import { registerSchema } from "Schem/formsSchema";
+import { registerSchema } from "schemes/schemes";
 import { ErrorText } from "components/common/ErrorText.styled";
 import { Input } from "components/common/Input.styled.";
 

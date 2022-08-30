@@ -7,8 +7,8 @@ const nameRegExp = RegExp(
 const numberRegExp = RegExp(/[0-9]/);
 
 export const contactSchema = yup.object().shape({
-  name: yup.string().min(2).matches(nameRegExp).required(),
-  number: yup.string().length(12).matches(numberRegExp).required(),
+  name: yup.string().matches(nameRegExp).min(2).required(),
+  number: yup.string().matches(numberRegExp).length(12).required(),
 });
 
 export const registerSchema = yup.object().shape({
