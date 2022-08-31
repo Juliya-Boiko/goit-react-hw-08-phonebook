@@ -15,6 +15,7 @@ export const InputPhone = ({ ...props }) => {
         id="number"
         defaultCountry="ua"
         preferredCountries={["ua"]}
+        autoFormat={true}
         //masks={{ua: '(..) ...-..-..'}}
         onChange={(value) => {
           helpers.setValue(value);
