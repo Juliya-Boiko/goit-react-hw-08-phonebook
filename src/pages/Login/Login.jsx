@@ -1,5 +1,5 @@
 import { MainTitle } from "components/common/MainTitle.styled";
-import { LoginForm } from "components/LoginForm/LoginForm";
+import { LoginForm } from "components/auth/LoginForm/LoginForm";
 
 const Login = () => {
   return (

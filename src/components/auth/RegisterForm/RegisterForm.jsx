@@ -1,33 +1,41 @@
 import { Formik, ErrorMessage } from "formik";
-import { loginUser } from "redux/authSlice";
-import { useRedux } from "hooks/useRedux";
-import { Navigate } from "react-router";
-import { logSchema } from "scheme/scheme";
-import { AuthForm } from "components/common/AuthForm.styled";
+import { AuthForm } from "components/auth/common/AuthForm.styled";
 import { PrimaryButton } from "components/common/PrimaryButton.styled";
+import { useRedux } from "hooks/useRedux";
+import { registerUser } from "redux/authSlice";
+import { Navigate } from "react-router";
+import { registerSchema } from "scheme/scheme";
 import { ErrorText } from "components/common/ErrorText.styled";
 import { Input } from "components/common/Input.styled.";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const [dispatch] = useRedux();
 
   const submitHandler = (values) => {
     const user = {
+      name: values.name,
       email: values.email,
       password: values.password,
     };
-    dispatch(loginUser(user));
-    <Navigate to="contacts" replace={true} />
+    dispatch(registerUser(user));
+    <Navigate to="contacts" replace={true}/>
   };
 
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ name: '', email: '', password: '' }}
       onSubmit={submitHandler}
-      validationSchema={logSchema}
+      validationSchema={registerSchema}
     >
       {props => (
         <AuthForm>
+          <Input
+            type="text"
+            name="name"
+            placeholder="name"
+            onChange={props.handleChange}
+            value={props.values.name} />
+          <ErrorMessage name="name" render={msg => <ErrorText>{msg}</ErrorText>} />
           <Input
             type="text"
             name="email"
@@ -42,7 +50,7 @@ export const LoginForm = () => {
             onChange={props.handleChange}
             value={props.values.password} />
           <ErrorMessage name="password" render={msg => <ErrorText>{msg}</ErrorText>} />
-          <PrimaryButton type="submit">LOG IN</PrimaryButton>
+          <PrimaryButton type="submit">REGISTER</PrimaryButton>
         </AuthForm>
       )}
     </Formik>
